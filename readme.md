@@ -1,5 +1,5 @@
 ## Algorithm
 ---
-* [introduction](,/introduction)
+* [introduction](./introduction)
 
 * [recursion](./recursion)
