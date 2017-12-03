@@ -25,14 +25,14 @@
 
 ```java
 else {
-			maze[x][y] = PATH_COLOUR;
-			if (findMazePath(x - 1, y) || findMazePath(x, y + 1)
-					|| findMazePath(x + 1, y) || findMazePath(x, y - 1)) {
-				return true;
-			}
-			maze[x][y] = BLOCKED_COLOUR;
-			return false;
-		}
+   maze[x][y] = PATH_COLOUR;
+   if (findMazePath(x - 1, y) || findMazePath(x, y + 1)
+	        || findMazePath(x + 1, y) || findMazePath(x, y - 1)) {
+       return true;
+   }
+   maze[x][y] = BLOCKED_COLOUR;
+   return false;
+}
 ```
 
 위의 code에서는 북, 동, 남, 서 순서로 경로를 탐색하도록 설계되어 있다
