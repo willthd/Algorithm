@@ -6,7 +6,7 @@
 
 ### Pseudocode
 
-![pseudocode](./pseudocode)
+![pseudocode](./pseudocode.png)
 
 ### final 변수 설명
 
@@ -21,7 +21,7 @@
 
 ### 움직인 경로
 
-![움직인경로](./resultPath)
+![움직인경로](./resultPath.png)
 
 ```java
 else {
