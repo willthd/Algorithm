@@ -50,3 +50,5 @@
 > 2진 검색
 
 ### [미로찾기](./maze)
+
+### [counting cells in a blob](./countingCells)
