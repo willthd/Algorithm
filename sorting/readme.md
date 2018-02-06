@@ -44,6 +44,10 @@
 
 * divide conquer
 
+  - base case 찾기
+
+  - base case 만들어내기
+
 ![8](./8.png)
 
 * 그림 이해하기
