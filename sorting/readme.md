@@ -1,4 +1,4 @@
-## Sortint
+## Sorting
 ---
 
 > 자주 사용하는 bubble sort와 sort 중 가장 빠른 quick sort 익혀 두기
@@ -53,3 +53,10 @@
 *  pseudo code
 
 ![10](./10.png)
+
+추가적으로 궁금한 내용 아래 링크 참조
+
+https://medium.com/@fiv3star/%EC%A0%95%EB%A0%AC%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-sorting-algorithm-%EC%A0%95%EB%A6%AC-8ca307269dc7
+
+
+http://hsp1116.tistory.com/33
