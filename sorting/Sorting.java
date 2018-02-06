@@ -63,16 +63,42 @@ public class Sorting {
 		return newArr;
 	}
 	
+	// divide conquer로 sum 만들기
+	public static int sumByDivideConqur(int[] arr) {
+		if (arr.length == 0) {
+			return 0;
+		}
+		if (arr.length <= 1) {
+			return arr[0];
+		}
+		int midIndex = arr.length / 2;
+		int[] less = new int[midIndex];
+		int[] greater = new int[arr.length - midIndex];
+		for (int i = 0; i < midIndex; i++) {
+			less[i] = arr[i];
+		}
+		for (int i = 0; i < arr.length - midIndex; i++) {
+			greater[i] = arr[midIndex + i];
+		}
+		return sumByDivideConqur(less) + sumByDivideConqur(greater);
+	}
+	
 	public static void main(String[] args) {
-		List<Integer> arr = Arrays.asList(1,10,3,0,0,0,0,15,-1,10,9);
-		System.out.println(arr);
-		List<Integer> newArrList = new ArrayList<>();
-		newArrList = quickSort(arr);
-		System.out.println(quickSort(newArrList));
-//		System.out.println(bubbleSort(arr));
-//		System.out.println(selectionSort(arr));
-//		System.out.println(Collections.max(arr));		// 최대값
-//		System.out.println(Collections.min(arr));		// 최소값
+		List<Integer> arrList = Arrays.asList(1,10,3,0,0,0,0,15,-1,10,9);
+		int[] arr = new int[10000];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = i + 1;
+		}
+		System.out.println(Collections.max(arrList));
+//		System.out.println(arrList);
+//		List<Integer> newArrList = new ArrayList<>();
+//		System.out.println(sumByDivideConqur(arr));
+//		newArrList = quickSort(arrList);
+//		System.out.println(quickSort(newArrList));
+//		System.out.println(bubbleSort(arrList));
+//		System.out.println(selectionSort(arrList));
+//		System.out.println(Collections.max(arrList));		// 최대값
+//		System.out.println(Collections.min(arrList));		// 최소값
 	}
 
 }
