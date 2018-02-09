@@ -7,3 +7,5 @@
 * [sort](./sorting)
 
 * [dynamic programming](./dp)
+
+* [and others](./andothers)

@@ -21,10 +21,17 @@
 
 * 일반적으로 최적화문제 혹은 카운팅 문제에 적용된다
 
-* 주어진 문제에 대한 순환식을 정의한다(순환식으로 정의 될 수 있다면 DP로 해결) - 가장 중요
+* 주어진 문제에 대한 점화식을 정의한다(점화식으로 정의 될 수 있다면 DP로 해결) - 가장 중요
 
   ![structure](./structure.png)
 
-  bottom-up : 순환식에서 오른쪽 부분이 왼쪽 부분보다 먼저 계산 되는 순서를 의미한다
+  bottom-up : 점화식에서 오른쪽 부분이 왼쪽 부분보다 먼저 계산 되는 순서를 의미한다
 
-* 순환식을 memoization(top-down) 또는 bottom-up 방식으로 푼다 (크게는 둘 다 동적 계획법이지만, bottom-up만을 의미하는 경우도 있다. memoization을 쓰지 않고 recursion을 활용하면 시간 복잡도 기하급수적으로 늘어난다)
+* 점화식을 memoization(top-down) 또는 bottom-up 방식으로 푼다 (크게는 둘 다 동적 계획법이지만, bottom-up만을 의미하는 경우도 있다. memoization을 쓰지 않고 recursion을 활용하면 중복 호출로 심각한 비효율이 발생한다)
+
+  - top-down VS bottom-up
+
+
+### 푼 문제
+
+* boj) 1463, 2193, 1904
