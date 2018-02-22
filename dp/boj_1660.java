@@ -5,6 +5,14 @@ import java.util.Scanner;
 
 // 캡틴 이다솜
 public class Main3{
+    public static int sum(int input) {
+      int sum = 0;
+      for (int i = 1; i <= input; i++) {
+          sum += i;
+      }
+      return sum;
+    }
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -12,8 +20,9 @@ public class Main3{
         int dp[] = new int[n+1];
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
+        int number = 0;
         for (int i = 1; ; i++){
-            int number = i*(i+1)*(i+2)/6;
+            number += sum(i);
             if (number > n)
                 break;
             for (int target = number; target <= n; target++){

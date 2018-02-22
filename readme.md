@@ -8,4 +8,8 @@
 
 * [dynamic programming](./dp)
 
+* [BFS](./BFS)
+
+* [DFS](./DFS)
+
 * [and others](./andothers)
