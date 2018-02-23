@@ -21,6 +21,6 @@ public class Main2 {
 				inputs[i * 3] = Math.min(inputs[i * 3], inputs[i] + 1);
 			}
 		}
-		System.out.println(inputs[input]); 
+		System.out.println(inputs[input]);
 	}
 }
