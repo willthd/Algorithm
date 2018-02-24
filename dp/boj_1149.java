@@ -11,7 +11,7 @@ public class Solution {
 		for (int i = 1; i <= input; i++) {
 			for (int j = 1; j <= 3; j++) {
 				grid[i][j] = sc.nextInt();
-			}
+			} 
 		}
 		int[][] dp = new int[input + 1][3 + 1];
 		for (int i = 1; i <= 3; i++) {
