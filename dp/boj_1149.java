@@ -25,5 +25,3 @@ public class Solution {
 		System.out.println(Math.min(Math.min(dp[input][1], dp[input][2]), dp[input][3]));
 	}
 }
-
- 
