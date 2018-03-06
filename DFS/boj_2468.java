@@ -17,6 +17,8 @@ public class Main {
 	public static List<Integer> answers = new ArrayList<Integer>();
 	public static int cnt = 0;
 
+
+	// 조건은 3개다. 1. 범위 벗어나는 것 2. 방문한 것 3. 불가능한 것
 	public static void countCells(int x, int y) {
 		if (x < 0 || x >= n || y < 0 || y >= n) {
 			return;
@@ -53,17 +55,18 @@ public class Main {
 				}
 			}
 
+			// 조건 2개다
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
 					if (no[i][j] != -1 && !visited[i][j]) {
 						countCells(i, j);
-						cnt++;						
+						cnt++;
 					}
 				}
 			}
-			
+
 			answers.add(cnt);
-			
+
 			for (int[] temp : no) {
 				Arrays.fill(temp, 0);
 			}
@@ -76,7 +79,7 @@ public class Main {
 		if (Collections.max(answers) == 0) {
 			System.out.println(1);
 		} else {
-			System.out.println(Collections.max(answers));			
+			System.out.println(Collections.max(answers));
 		}
 	}
 }
