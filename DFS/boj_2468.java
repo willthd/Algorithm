@@ -19,7 +19,7 @@ public class Main {
 
 
 	// 조건은 3개다. 1. 범위 벗어나는 것 2. 방문한 것 3. 불가능한 것
-	public static void countCells(int x, int y) {
+	public static void countBlobs(int x, int y) {
 		if (x < 0 || x >= n || y < 0 || y >= n) {
 			return;
 		} else if (visited[x][y] || no[x][y] == -1) {
@@ -30,6 +30,7 @@ public class Main {
 			countCells(x + 1, y);
 			countCells(x, y - 1);
 			countCells(x, y + 1);
+			return;
 		}
 	}
 
