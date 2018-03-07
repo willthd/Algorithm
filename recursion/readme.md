@@ -32,6 +32,8 @@
 > 최대공약수 방법 1
 >
 > 최대공약수 방법 2
+>
+> 조합(combination)
 
 
 ### recursion2.js

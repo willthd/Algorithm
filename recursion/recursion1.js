@@ -60,3 +60,12 @@ function euclid2(p, q) {
   }
 }
 console.log(euclid2(15, 40));
+
+// combination
+function combination(n, r) {
+  if (n === r || r === 1) {
+    return 1;
+  } else {
+    return combination(n - 1, r - 1) + combination(n - 1, r);
+  }
+}
