@@ -57,3 +57,5 @@
 ### [미로찾기](./maze)
 
 ### [counting cells in a blob](./countingCells)
+
+### [n-queens](./n-queens)
