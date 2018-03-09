@@ -3,7 +3,7 @@ package practice;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// 1로 만들기
+// 백준, 1463, 1로 만들기, bottomUp
 public class Main2 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
