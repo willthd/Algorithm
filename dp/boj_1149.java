@@ -2,7 +2,7 @@ package practice;
 
 import java.util.Scanner;
 
-// RGB 거리
+// 백준, 1149, RGB 거리
 public class Solution {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
