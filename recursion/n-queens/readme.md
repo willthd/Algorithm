@@ -10,20 +10,20 @@
 
 ### Pseudocode
 
-#### 기본 틀
+1. 기본 틀
 
 ![pseudo1](./pseudo1.png)
 
-#### else 부분
+2. else 부분
 
 ![pseudocode2](./pseudo2.png)
 
 ![pseudocode3](./pseudo3.png)
 
-#### promising check
+3. promising check
 
 ![pseudocode4](./pseudo4.png)
 
-#### 완성
+4. 완성
 
 ![pseudocode5](./pseudo5.png)
