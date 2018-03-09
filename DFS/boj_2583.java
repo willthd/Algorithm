@@ -14,7 +14,7 @@ public class Solution {
 	static int[][] grid = new int[m][n];
 	static boolean[][] visited = new boolean[m][n];
 	static List<Integer> values = new ArrayList<>();
-	
+
 	static int dfs(int x, int y) {
 		if (x < 0 || x >= m || y < 0 || y >= n) {
 			return 0;
@@ -26,9 +26,9 @@ public class Solution {
 			visited[x][y] = true;
 			return 1 + dfs(x - 1, y) + dfs(x + 1, y) + dfs(x, y - 1) + dfs(x, y + 1);
 		}
-		
+
 	}
-	
+
 	public static void main(String[] args) {
 		grid = new int[m][n];
 		for (int i = 0; i < k; i++) {
@@ -42,6 +42,7 @@ public class Solution {
 				}
 			}
 		}
+		// 여기선 m, n 순서를 바꿀 필요없다
 		for (int i = 0 ; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				if (grid[i][j] == 0 && !visited[i][j]) {
@@ -49,7 +50,7 @@ public class Solution {
 				}
 			}
 		}
-		
+
 		Collections.sort(values);
 		System.out.println(values.size());
 		for (int i = 0; i < values.size(); i++) {
