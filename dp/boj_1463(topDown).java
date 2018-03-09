@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-// 1로 만들기
+// 백준, 1463, 1로 만들기, topDown
 public class Solution {
 	static int[] inputs = new int[1000000 + 1];
 
