@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Main {
 	static int n;
 	static int[] a;
-	static int cnt;
 
 	static void dfs(int index, String ans) {
 		if (cnt == 6) {
