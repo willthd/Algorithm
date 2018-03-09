@@ -12,18 +12,18 @@
 
 #### 기본 틀
 
-![pseudocode](./pseudocode1.png)
+![pseudo1](./pseudo1.png)
 
 #### else 부분
 
-![pseudocode](./pseudocode2.png)
+![pseudocode2](./pseudo2.png)
 
-![pseudocode](./pseudocode3.png)
+![pseudocode3](./pseudo3.png)
 
 #### promising check
 
-![pseudocode](./pseudocode4.png)
+![pseudocode4](./pseudo4.png)
 
 #### 완성
 
-![pseudocode](./pseudocode5.png)
+![pseudocode5](./pseudo5.png)
