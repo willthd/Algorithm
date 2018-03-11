@@ -2,7 +2,7 @@ package practice;
 
 import java.util.Scanner;
 
-// 이친수
+// 백준, 2193, 이친수
 public class Solution {
 	public static long boj2193(int input) {
 		long[] results = new long[input + 1];
