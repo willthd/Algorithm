@@ -2,7 +2,8 @@ package practice;
 
 import java.util.Scanner;
 
-// 내려가기. 1149문제와 비슷
+// 백준, 2096, 내려가기
+// 1149문제와 비슷
 public class Solution {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
