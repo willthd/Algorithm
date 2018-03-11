@@ -2,7 +2,7 @@ package practice;
 
 import java.util.Scanner;
 
-// 백준, 1904, 01타일
+// 백준, 1904, 01타일, bottomUp
 public class Solution {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
