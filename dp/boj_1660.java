@@ -3,7 +3,7 @@ package practice;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// 캡틴 이다솜
+// 백준, 1660, 캡틴 이다솜
 public class Main3{
     public static int sum(int input) {
       int sum = 0;
