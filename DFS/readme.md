@@ -14,9 +14,9 @@ static void dfs(int index, int cnt, String ans) {
     return;
   }
   for (int i = index; i <= n; i++) {
-    visited[i] = true;  // 있을 필요도 있고 없을 필요도 있고. 로또 문제에선 필요 없다
+    visited[i] = true;  // 필요할 수도 있고, 그렇지 않을 수도 있음. 로또 문제에선 필요 없다
     dfs(i + 1, cnt + 1, ans + i + " ");
-    visited[i] = false;   // 있을 필요도 있고 없을 필요도 있고. 로또 문제에선 필요 없다
+    visited[i] = false;   // 필요할 수도 있고, 그렇지 않을 수도 있음. 로또 문제에선 필요 없다
   }
 }
 
