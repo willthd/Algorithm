@@ -3,7 +3,7 @@ package practice;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// 백준, 1904, 01타일, topDown
+// 백준, 1904, 01타일, topDown 
 public class Solution {
 	static int[] inputs = new int[1000000 + 1];
 
