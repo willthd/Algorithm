@@ -8,11 +8,11 @@ import java.util.*;
 public class Main{
 	static int n, grid[][], min = Integer.MAX_VALUE;
 	static boolean visited[];
-	
+
 	public static void dfs(int index, int cnt, String ans){
 		if (cnt == n / 2){
 			int start = 0, link = 0;
-			
+
 			for (int i = 0; i < n; i++){
 				for (int j = 0; j < n; j++){
 					if (visited[i] && visited[j]) {
@@ -23,31 +23,31 @@ public class Main{
 					}
 				}
 			}
-			
+
 			min = Math.min(min, Math.abs(start - link));
-				System.out.println(ans);
+			System.out.println(ans);
 			return;
 		}
-		
+
 		for(int i = index; i < n; i++){
 			visited[i] = true;
 			dfs(i + 1, cnt + 1, ans + i + " ");
 			visited[i] = false;
 		}
 	}
-	
+
 	public static void main(String[]ar){
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
 		grid = new int[n][n];
 		visited = new boolean[n];
-		
+
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				grid[i][j] = sc.nextInt();				
+				grid[i][j] = sc.nextInt();
 			}
 		}
-		
+
 		dfs(0, 0, "");
 		System.out.println(min);
 	}
