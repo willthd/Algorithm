@@ -1,7 +1,8 @@
 package practice;
 import java.util.*;
 
-// 숨바꼭질2, 숨바꼭질1과 다르게 visited[] 추가했다. 꼭 필요하지 않지만 이런 형태를 기억하는 것이 좋을 것 같다
+// 백준, 12851, 숨바꼭질2
+// 숨바꼭질1과 다르게 visited[] 추가했다. 꼭 필요하지 않지만 이런 형태를 기억하는 것이 좋을 것 같다
 class Main2 {
 	public static final int MAX = 100001;
 	static int dist[] = new int[MAX];
@@ -13,12 +14,12 @@ class Main2 {
 
 		int N = sc.nextInt();
 		int K = sc.nextInt();
-		
+
 		Queue<Integer> q = new LinkedList<>();
 		q.add(N);
 		visited[N] = true;
 		count[N] = 1;
-		
+
 		while(!q.isEmpty()) {
 			int cur = q.poll();
 			int next[] = { cur - 1, cur + 1, cur * 2 };
