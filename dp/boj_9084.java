@@ -2,7 +2,7 @@ package practice;
 
 import java.util.Scanner;
 
-// 동전
+// 백준, 9084, 동전
 public class Solution {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
