@@ -30,3 +30,9 @@ static void main(String[] args) {
 ### lotto 문제 back tracking
 
 ![image](./lotto.png)
+
+### 유형
+
+부분 집합 찾는 경우(조합)
+
+grid에서 조건 만족될 때 파고드는 경우
