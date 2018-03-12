@@ -1,7 +1,7 @@
 package practice;
 import java.util.*;
 
-// 숨바꼭질3
+// 백준, 13549, 숨바꼭질3
 class Main2 {
 	public static final int MAX = 100001;
 	static int dist[] = new int[MAX];
@@ -12,11 +12,11 @@ class Main2 {
 
 		int N = sc.nextInt();
 		int K = sc.nextInt();
-		
+
 		Queue<Integer> q = new LinkedList<>();
 		q.add(N);
 		visited[N] = true;
-		
+
 		while(!q.isEmpty()) {
 			int cur = q.poll();
 			int next[] = { cur - 1, cur + 1, cur * 2 };
@@ -28,7 +28,7 @@ class Main2 {
 							visited[next[i]] = true;
 						} else {
 							dist[next[i]] = dist[cur] + 1;
-							visited[next[i]] = true;							
+							visited[next[i]] = true;
 						}
 						q.add(next[i]);
 					}
