@@ -1,7 +1,8 @@
 package practice;
 import java.util.*;
 
-// 숨바꼭질. 스타트링크와 비슷
+// 백준, 1697, 숨바꼭질
+// 스타트링크와 비슷
 class Main {
 	static int d[] = new int[100001];
 
