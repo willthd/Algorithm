@@ -2,7 +2,7 @@ package practice;
 
 import java.util.*;
 
-// 숨바꼭질4
+// 백준, 13913, 숨바꼭질4
 class Main2 {
 	public static final int MAX = 100001;
 	static int dist[] = new int[MAX];
@@ -49,19 +49,19 @@ class Main2 {
 //			s += stk.pop() + " ";
 //		}
 //		System.out.println(s);
-		
+
 //		방법1, 가장 성능 좋다
 		StringBuilder sb = new StringBuilder();
 		while(!stk.isEmpty()) {
 			sb.append(stk.pop() + " ");
 		}
 		System.out.println(sb);
-		
+
 //		방법2, sysout("string")역시 객체를 만들고 출력한다
 		while(!stk.isEmpty()) {
 			System.out.print(stk.pop() + " ");
 		}
 	}
-	
-	
+
+
 }
