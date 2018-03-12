@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-// DFS와 BFS
+// 백준, 1260, DFS와 BFS
 public class Solution {
 	static int[][] graph = new int[1001][1001];
 	static boolean[] visited = new boolean[1001];
@@ -15,14 +15,14 @@ public class Solution {
 	public static void dfs(int start) {
         visited[start] = true;
         System.out.print(start + " ");
-          
+
         for(int i = 1; i <= node; i++){
             if(graph[start][i] == 1 && visited[i] == false){
                 dfs(i);
             }
         }
     }
-	
+
 	public static void bfs(int start) {
         Queue<Integer> q = new LinkedList<Integer>();
         q.offer(start);
@@ -38,7 +38,7 @@ public class Solution {
                     visited[i] = true;
                     System.out.print(i + " ");
                 }
-            }                       
+            }
         }
     }
 
@@ -54,7 +54,7 @@ public class Solution {
 			graph[first][second] = 1;
 			graph[second][first] = 1;
 		}
-		
+
 		dfs(start);
 		System.out.println();
 		for (int i = 1; i <= node; i++) {
