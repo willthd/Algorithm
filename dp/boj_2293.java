@@ -3,7 +3,8 @@ package practice;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// 동전1. 1660번 문제와 비슷
+// 백준, 2293, 동전1
+// 1660번 문제와 비슷
 public class Solution {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
