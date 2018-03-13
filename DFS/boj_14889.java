@@ -9,7 +9,7 @@ public class Main{
 	static int n, grid[][], min = Integer.MAX_VALUE;
 	static boolean visited[];
 
-	public static void dfs(int index, int cnt, String ans){
+	public static void dfs(int index, int cnt){
 		if (cnt == n / 2){
 			int start = 0, link = 0;
 
@@ -25,13 +25,12 @@ public class Main{
 			}
 
 			min = Math.min(min, Math.abs(start - link));
-			System.out.println(ans);
 			return;
 		}
 
 		for(int i = index; i < n; i++){
 			visited[i] = true;
-			dfs(i + 1, cnt + 1, ans + i + " ");
+			dfs(i + 1, cnt + 1);
 			visited[i] = false;
 		}
 	}
@@ -48,7 +47,7 @@ public class Main{
 			}
 		}
 
-		dfs(0, 0, "");
+		dfs(0, 0);
 		System.out.println(min);
 	}
 }
