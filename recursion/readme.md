@@ -54,6 +54,8 @@
 >
 > 2진 탐색
 
+### [하노이탑](./hanoi)
+
 ### [미로찾기](./maze)
 
 ### [counting cells in a blob](./countingCells)
