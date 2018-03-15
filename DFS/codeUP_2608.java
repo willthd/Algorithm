@@ -4,14 +4,22 @@ import java.util.*;
 // 중복 순열
 public class Main {
 	static int n;
-	static void print(int cnt, String ans) {
-		if (cnt == n) {
-			System.out.println(ans);
-			return;
-		}
-		print(cnt + 1, ans + "O");
-		print(cnt + 1, ans + "X");
-	}
+  static int a[21];
+  static void f(int w){
+    if(w==n){
+      for(int i=0;i<n;i++){
+        if(a[i]==0)System.out.print("O");
+        else System.out.print("X");
+      }
+      System.out.println("");
+      return;
+    }
+    for(int i=0;i<2;i++){
+      a[w]=i;
+      f(w+1);
+    }
+
+  }
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
