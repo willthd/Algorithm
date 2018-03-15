@@ -1,6 +1,7 @@
 import java.util.*;
 
 // codeUp, 2608, 동아리 회장 선거
+// 중복 순열
 public class Main {
 	static int n;
 	static void print(int cnt, String ans) {
