@@ -19,7 +19,7 @@ public class Main {
 		int dir = 0;
 		for (int i = 0; i < n * m; i++) {
 			arr[x][y] = i + 1;
-			// 그 다음 좌표가 범위를 벗어나거나, 0이 아닌수 (이미 차져 있는 상태)를 만났을 때
+			// 그 다음 좌표가 범위를 벗어나거나, 0이 아닌수 (이미 값이 들어 있는 상태)를 만났을 때
 			if (x + dx[dir] < 0 || x + dx[dir] >= n || y + dy[dir] < 0 || y + dy[dir] >= m
 					|| arr[x + dx[dir]][y + dy[dir]] != 0) {
 				dir++;
