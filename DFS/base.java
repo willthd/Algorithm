@@ -2,7 +2,7 @@ package practice;
 
 import java.util.*;
 
-// 재귀. 이런 유형엔 두 가지 경우가 있다. 2^n과 n! 
+// 재귀. 이런 유형엔 두 가지 경우가 있다. 2^n과 n!
 // 둘 다 아래의 코드를 기본 베이스로 하여 변형할 수 있다
 // 문제 해결에 따라 if문 내부를 변형하여 답을 구한다
 public class Main4 {
