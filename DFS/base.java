@@ -19,6 +19,7 @@ public class Main4 {
 		}
 		// 가지를 몇개로 뻗을 것인가
 		for (int i = 1; i <= n; i++) {
+			// 중요 !!!
 			if (checked[i] == 1) {
 				continue;
 			}
