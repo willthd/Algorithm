@@ -3,6 +3,7 @@ package practice;
 import java.util.*;
 
 // SWEA, 4013, 특이한 자석
+// 언제 초기화 할 것이냐 중요
 public class Main2 {
 	static int gear[][], dir[];
 	static boolean checked[];
@@ -46,8 +47,8 @@ public class Main2 {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-//		int n = sc.nextInt();
-//		for (int i = 0; i < n; i++) {
+		int n = sc.nextInt();
+		for (int i = 0; i < n; i++) {
 			int m = sc.nextInt();
 			gear = new int[4][8];
 			for (int j = 0; j < 4; j++) {
@@ -61,19 +62,15 @@ public class Main2 {
 				int num = sc.nextInt() - 1;
 				int direction = sc.nextInt();
 				check(num, direction);	
-				for (int i = 0; i < 4; i++) {
-					System.out.print(dir[i] + " /");
-				}
-				System.out.println();
 				spin();
-				for (int i = 0; i < 4; i++) {
-					for (int k = 0; k < 8; k++) {
-						System.out.print(gear[i][k] + " ");
-					}
-					System.out.println();
-				}
-				System.out.println("***********");
+				dir = new int[4];
+				checked = new boolean[4];
 			}
-//		}
+			int result = 0;
+			for (int j = 0; j < 4; j++) {
+				result += gear[j][0] * Math.pow(2, j);
+			}
+			System.out.println("#" + (i + 1) + " " + result);
+		}
 	}
 }
