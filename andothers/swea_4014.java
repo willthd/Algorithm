@@ -3,9 +3,10 @@ package practice;
 import java.util.*;
 
 // SWEA, 4014, 활주로 건설
+// 백준, 14890, 경사로 문제와 똑같다
 public class Main {
 	static int n, x, grid1[][], grid2[][], cnt;
-	
+
 	static boolean checkAll(int arr[]) {
 		boolean checked[] = new boolean[n];
 		if (check(arr, checked) && checkReverse(arr, checked)) {
@@ -74,7 +75,7 @@ public class Main {
 					grid2[j][i] = grid1[i][j];
 				}
 			}
-			
+
 			cnt = 0;
 			for (int i = 0; i < n; i++) {
 				if (checkAll(grid1[i])) {
