@@ -3,30 +3,31 @@ package practice;
 import java.util.*;
 
 // SWEA, 4013, 특이한 자석
+// 백준, 14891, 톱니바퀴와 똑같다
 // 언제 초기화 할 것이냐 중요
 public class Main2 {
 	static int gear[][], dir[];
 	static boolean checked[];
-	
+
 	static void check(int num, int direction) {
 		if (checked[num]) {
 			return;
 		}
 		checked[num] = true;
 		dir[num] = direction;
-		if (num + 1 <= 3) {			
+		if (num + 1 <= 3) {
 			if (gear[num][2] != gear[num + 1][6]) {
-				check(num + 1, (-1) * direction);			
+				check(num + 1, (-1) * direction);
 			}
 		}
 		if (num - 1 >= 0) {
 			if (gear[num][6] != gear[num - 1][2]) {
-				check(num - 1, (-1) * direction);			
+				check(num - 1, (-1) * direction);
 			}
 		}
 		return;
  	}
-	
+
 	static void spin() {
 		for (int i = 0; i < 4; i++) {
 			if (dir[i] == 1) {
@@ -44,7 +45,7 @@ public class Main2 {
 			}
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
@@ -61,7 +62,7 @@ public class Main2 {
 			for (int j = 0; j < m; j++) {
 				int num = sc.nextInt() - 1;
 				int direction = sc.nextInt();
-				check(num, direction);	
+				check(num, direction);
 				spin();
 				dir = new int[4];
 				checked = new boolean[4];
