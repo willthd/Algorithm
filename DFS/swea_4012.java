@@ -10,7 +10,7 @@ public class Solution {
 	static int m, n, a[], grid[][];
 	static boolean checked[];
 	static int MIN = (int) 1e9;
-	
+
 	static void func(int dep,int st) {
 		if (dep == n / 2) {
 			int sum1 = 0;
@@ -34,7 +34,7 @@ public class Solution {
 ////			}
 			checked[i] = true;
 //			a[dep] = i;
-			func(dep + 1,i+1);
+			func(dep + 1,i + 1);
 			checked[i] = false;
 		}
 	}
