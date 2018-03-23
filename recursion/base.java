@@ -7,8 +7,8 @@ import java.util.*;
 public class Main7 {
 	static int n, a[];
 	static boolean checked[];
-	
-	// n^r (1~5 중에서 3개 뽑아서 중복 가능, 순서 무시 나열)
+
+	// n^r(n파이r), 중복 순열(1~5 중에서 3개 뽑아서 중복 가능, 순서 무시 나열)
 	static void f1(int dep) {
 		if (dep == 3) {
 			for (int i = 0; i < 3; i++) {
@@ -17,12 +17,12 @@ public class Main7 {
 			System.out.println();
 			return;
 		}
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < n; i++) {
 			a[dep] = i + 1;
 			f1(dep + 1);
 		}
 	}
-	
+
 	// nPr, 순열 (1~5 중에서 3개 뽑아서 중복 불가능, 순서 있는 나열)
 	static void f2(int dep) {
 		if (dep == 3) {
@@ -32,7 +32,7 @@ public class Main7 {
 			System.out.println();
 			return;
 		}
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < n; i++) {
 			if (checked[i]) {
 				continue;
 			}
@@ -42,7 +42,7 @@ public class Main7 {
 			checked[i] = false;
 		}
 	}
-	
+
 	// nCr, 조합 (1~5 중에서 3개 뽑아서 중복 불가능, 순서 없는 나열)
 	static void f3(int dep, int start) {
 		if (dep == 3) {
@@ -52,12 +52,12 @@ public class Main7 {
 			System.out.println();
 			return;
 		}
-		for (int i = start; i < 5; i++) {
+		for (int i = start; i < n; i++) {
 			a[dep] = i + 1;
 			f3(dep + 1, i + 1);
 		}
 	}
-	
+
 	// nHr, 중복 조합 (1~5 중에서 3개 뽑아서 중복 가능, 순서 없는 나열)
 	static void f4(int dep, int start) {
 		if (dep == 3) {
@@ -67,12 +67,12 @@ public class Main7 {
 			System.out.println();
 			return;
 		}
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < n; i++) {
 			a[dep] = i + 1;
 			f4(dep + 1, i);
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		n = 5;
