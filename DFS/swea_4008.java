@@ -6,97 +6,65 @@ import java.util.*;
 // 백준, 14888, 연산자 문제보다 좀 더 쉽다
 // 10번 테케 시간 초과
 // Integer.Max 써야되는 경우도 있다
+// 언제 초기화 할 것이냐 중요
+// a배열 스트링 쓸 필요 있느냐. 스트링은 더하기 연산 오래 걸린다
 public class Main3 {
-	static int n, num[], sum, MAX, MIN;
-	static String buho[], a[];
-	static boolean checked[];
 
-	static void func(int dep) {
+	static int cnt[], num[], a[];
+	static int MAX, MIN, n;
+
+	static void f(int dep) {
 		if (dep == n - 1) {
-			String s = "";
+			int sum = num[0];
 			for (int i = 0; i < n - 1; i++) {
-				s += num[i] + a[i];
+				if (a[i] == 0) {
+					sum += num[i + 1];
+				}
+				if (a[i] == 1) {
+					sum -= num[i + 1];
+				}
+				if (a[i] == 2) {
+					sum *= num[i + 1];
+				}
+				if (a[i] == 3) {
+					sum /= num[i + 1];
+				}
 			}
-			s += num[n - 1];
-			cal(s);
-			MAX = Math.max(MAX, sum);
-			MIN = Math.min(MIN, sum);
+			if (MIN > sum)
+				MIN = sum;
+			if (MAX < sum)
+				MAX = sum;
 			return;
 		}
-		for (int i = 0; i < n - 1; i++) {
-			if (checked[i]) {
+		for (int i = 0; i < 4; i++) {
+			if (cnt[i] == 0) {
 				continue;
 			}
-			checked[i] = true;
-			a[dep] = buho[i];
-			func(dep + 1);
-			checked[i] = false;
-		}
-	}
-
-	static void cal(String s) {
-		sum = Integer.parseInt(s.charAt(0) + "");
-		for (int i = 0; i < s.length(); i++) {
-			if (s.charAt(i) == '+') {
-				sum += Integer.parseInt((s.charAt(i + 1) + ""));
-			}
-			if (s.charAt(i) == '-') {
-				sum -= Integer.parseInt((s.charAt(i + 1) + ""));
-			}
-			if (s.charAt(i) == 'x') {
-				sum *= Integer.parseInt((s.charAt(i + 1) + ""));
-			}
-			if (s.charAt(i) == '/') {
-				sum /= Integer.parseInt((s.charAt(i + 1) + ""));
-			}
+			cnt[i]--;
+			a[dep] = i;
+			f(dep + 1);
+			cnt[i]++;
 		}
 	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int t = sc.nextInt();
-		for (int i = 0; i < t; i++) {
-			n = sc.nextInt();
+		n = sc.nextInt();
+		for (int tc = 0; tc < t; tc++) {
+			cnt = new int[4];
 			num = new int[n];
-			buho = new String[n - 1];
-			a = new String[n - 1];
-			checked = new boolean[n - 1];
-			MAX = Integer.MIN_VALUE;
-			MIN = Integer.MAX_VALUE;
-			Queue<String> q = new LinkedList<>();
-			int plus = sc.nextInt();
-			for (int j = 0; j < plus; j++) {
-				q.add("+");
+			a = new int[n - 1];
+			for (int i = 0; i < 4; i++) {
+				cnt[i] = sc.nextInt();
 			}
-			int sub = sc.nextInt();
-			for (int j = 0; j < sub; j++) {
-				q.add("-");
+			for (int i = 0; i < n; i++) {
+				num[i] = sc.nextInt();
 			}
-			int multi = sc.nextInt();
-			for (int j = 0; j < multi; j++) {
-				q.add("x");
-			}
-			int div = sc.nextInt();
-			for (int j = 0; j < div; j++) {
-				q.add("/");
-			}
-			for (int j = 0; j < n - 1; j++) {
-				buho[j] = q.poll();
-			}
-			for (int j = 0; j < n; j++) {
-				num[j] = sc.nextInt();
-			}
-			func(0);
-			System.out.println("#" + (i + 1) + " " + (MAX - MIN));
+			MAX = -(int) 1e9;
+			MIN = (int) 1e9;
+			f(0);
+			System.out.println("#" + (tc + 1) + " " + Math.abs(MAX - MIN));
 		}
 	}
 }
-
-// 질문1
-// for (int j = 0; j < q.size(); j++) {
-// buho[j] = q.poll();
-// }
-// 질문2
-// for (int j = 0; j < sc.nextInt(); j++) {
-// q.add("+");
-// }
