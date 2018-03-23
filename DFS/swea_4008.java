@@ -50,8 +50,8 @@ public class Main3 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int t = sc.nextInt();
-		n = sc.nextInt();
 		for (int tc = 0; tc < t; tc++) {
+			n = sc.nextInt();
 			cnt = new int[4];
 			num = new int[n];
 			a = new int[n - 1];
