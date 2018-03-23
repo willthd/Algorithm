@@ -58,7 +58,7 @@ public class Main7 {
 		}
 	}
 
-	// nHr, 중복 조합 (1~5 중에서 3개 뽑아서 중복 가능, 순서 없는 나열)
+	// nHr(n+r-1Cr), 중복 조합 (1~5 중에서 3개 뽑아서 중복 가능, 순서 없는 나열)
 	static void f4(int dep, int start) {
 		if (dep == 3) {
 			for (int i = 0; i < 3; i++) {
