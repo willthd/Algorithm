@@ -43,6 +43,27 @@ public class Main7 {
 		}
 	}
 
+	// 기본적으로 순열은 서로 다른 수들을 순서 있게 나열 하는 것이지만, n개의 수 중에서 일부가 겹치는 경우 있다
+	// 이 때 수를 나열하는 방법. 즉 일부 중복 가능, 순서 있는 나열. 여기선 총 숫자의 개수가 n개이고, 종류는 4개, cnt[]는 4가지 종류가 n개중 몇 개씩 있는지
+	static void f2Alpha(int dep) {
+		if (dep == n) {
+			for (int i = 0; i < 3; i++) {
+				System.out.print(a[i]);
+			}
+			System.out.println();
+			return;
+		}
+		for (int i = 0; i < 4; i++) {
+			if (cnt[i] == 0) {
+				continue;
+			}
+			cnt[i]--;
+			a[dep] = i + 1;
+			f2(dep + 1);
+			cnt[i]++;
+		}
+	}
+
 	// nCr, 조합 (1~5 중에서 3개 뽑아서 중복 불가능, 순서 없는 나열)
 	static void f3(int dep, int start) {
 		if (dep == 3) {
