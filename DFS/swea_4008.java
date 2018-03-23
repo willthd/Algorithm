@@ -7,7 +7,7 @@ import java.util.*;
 // 10번 테케 시간 초과
 // Integer.Max 써야되는 경우도 있다
 // 언제 초기화 할 것이냐 중요
-// a배열 스트링 쓸 필요 있느냐. 스트링은 더하기 연산 오래 걸린다
+// a배열 스트링 쓸 필요 있느냐. 스트링은 더하기 연산 오래 걸린다 
 public class Main3 {
 
 	static int cnt[], num[], a[];
