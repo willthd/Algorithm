@@ -7,6 +7,17 @@ public class Main5 {
 	static int a[][];
 	static boolean check1[][], check2[][], check3[][];
 	static int x[], y[], zeroNum;
+	
+	static void check() {
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				if (a[i][j] == 0) {
+					System.out.println("Not Possible");
+					return;
+				}
+			}
+		}
+	}
 
 	static void func(int dep) {
 		if (dep == zeroNum) {
@@ -25,10 +36,6 @@ public class Main5 {
 			}
 			check1[xx][i] = check2[yy][i] = check3[xx / 3 * 3 + yy / 3][i] = true;
 			a[xx][yy] = i;
-//			이렇게 해도 되는데 굳이 int형 return하는 것인가?
-//			if (func(dep + 1) == 1) {
-//				return 1;
-//			}
 			func(dep + 1);
 			check1[xx][i] = check2[yy][i] = check3[xx / 3 * 3 + yy / 3][i] = false;
 		}
@@ -36,7 +43,6 @@ public class Main5 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int i, j;
 		a = new int[10][10];
 		check1 = new boolean[10][10];
 		check2 = new boolean[10][10];
@@ -44,8 +50,8 @@ public class Main5 {
 		x = new int[100];
 		y = new int[100];
 		zeroNum = 0;
-		for (i = 0; i < 9; i++) {
-			for (j = 0; j < 9; j++) {
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
 				a[i][j] = sc.nextInt();
 				if (a[i][j] == 0) {
 					x[zeroNum] = i;
@@ -58,6 +64,7 @@ public class Main5 {
 				}
 			}
 		}
-		func(0);			
+		func(0);
+		check();
 	}
 }
