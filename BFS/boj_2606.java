@@ -22,10 +22,10 @@ public class Main4 {
 		q.add(1);
 		while(!q.isEmpty()) {
 			int now = q.poll();
-			visited[now] = true;
 			for (int i = 0; i < n + 1; i++) {
 				if (g[now][i] == 1 && !visited[i]) {
 					q.add(i);
+					visited[i] = true;
 				}
 			}
 		}
