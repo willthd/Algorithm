@@ -24,11 +24,15 @@ public class Main4 {
 //				이렇게 하면 안된다. 시작점 무조건 true로 해버리기 때문
 //				visited[now] = true;
 				for (int j = 0; j < n; j++) {
-					if (g[now][j] != 0 && !visited[j]) {
-						q.add(j);
-						// 여기다가 true해야 한다
-						visited[j] = true;
-					}					
+					if (g[now][j] == 0) {
+						continue;
+					}
+					if (visited[j]) {
+						continue;
+					}
+					q.add(j);
+					// 여기다가 true해야 한다
+					visited[j] = true;				
 				}
 			}
 			for (int j = 0; j < n; j++) {
