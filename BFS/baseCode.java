@@ -6,6 +6,7 @@ import java.util.*;
 public class Main6 {
 	static int M[][];
 	static int dist[][];
+	static boolean visited[][];
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -14,6 +15,7 @@ public class Main6 {
 		M = new int[n][m];
 		// 기준 점으로 부터 거리 차이(시간이 될 수도 있다)
 		dist = new int[n][m];
+		visited = new boolean[n][m];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				M[i][j] = sc.nextInt();
@@ -29,15 +31,16 @@ public class Main6 {
 		startx = starty = 1;
 		qx.add(startx);
 		qy.add(starty);
-		dist[startx][starty] = 1;
+		dist[startx][starty] = 0;
 		while (!qx.isEmpty()) {
 			int nowx = qx.poll();
 			int nowy = qy.poll();
+			visited[nowx][nowy] = true;
 			for (int i = 0; i < 4; i++) {
 				int nextx = nowx + dx[i];
 				int nexty = nowy + dy[i];
-				// 조건 대개 3개다 !!!
-				// 범위를 벗어나는 곳
+				// 조건 3개
+				// 범위 벗어난 곳
 				if (nextx < 0 || nextx >= n || nexty < 0 || nexty >= m) {
 					continue;
 				}
@@ -46,7 +49,7 @@ public class Main6 {
 					continue;
 				}
 				// 이미 방문한 곳
-				if (dist[nextx][nexty] != 0) {
+				if (visited[nextx][nexty]) {
 					continue;
 				}
 				dist[nextx][nexty] = dist[nowx][nowy] + 1;
@@ -54,7 +57,6 @@ public class Main6 {
 				qy.add(nexty);
 			}
 		}
-
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				System.out.print(dist[i][j] + " ");
