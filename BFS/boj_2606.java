@@ -23,10 +23,14 @@ public class Main4 {
 		while(!q.isEmpty()) {
 			int now = q.poll();
 			for (int i = 0; i < n + 1; i++) {
-				if (g[now][i] == 1 && !visited[i]) {
-					q.add(i);
-					visited[i] = true;
-				}
+				if (g[now][i] == 0) {
+                    continue;
+                }
+                if (visited[i]) {
+                    continue;
+                }
+				visited[i] = true;
+				q.add(i);
 			}
 		}
 		int cnt = 0;
