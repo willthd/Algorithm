@@ -36,6 +36,8 @@ public class Main6 {
 			for (int i = 0; i < 4; i++) {
 				int nextx = nowx + dx[i];
 				int nexty = nowy + dy[i];
+				// 조건 대개 3개다 !!!
+				// 범위를 벗어나는 곳
 				if (nextx < 0 || nextx >= n || nexty < 0 || nexty >= m) {
 					continue;
 				}
