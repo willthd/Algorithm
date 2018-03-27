@@ -22,6 +22,7 @@ public class Main4 {
 			while(!q.isEmpty()) {
 				int now = q.poll();
 //				이렇게 하면 안된다. 시작점 무조건 true로 해버리기 때문
+//				때에 따라 다르다. baseCode같은 경우에는 true를 여기서 설정해야한다
 //				visited[now] = true;
 				for (int j = 0; j < n; j++) {
 					if (g[now][j] == 0) {
@@ -32,12 +33,12 @@ public class Main4 {
 					}
 					q.add(j);
 					// 여기다가 true해야 한다
-					visited[j] = true;				
+					visited[j] = true;
 				}
 			}
 			for (int j = 0; j < n; j++) {
 				if (visited[j]) {
-					System.out.print(1 + " ");					
+					System.out.print(1 + " ");
 				} else {
 					System.out.print(0 + " ");
 				}
