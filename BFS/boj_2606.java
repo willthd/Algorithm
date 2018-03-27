@@ -15,7 +15,7 @@ public class Main4 {
 		for (int i = 0; i < m; i++) {
 			int r = sc.nextInt();
 			int c = sc.nextInt();
-			g[r][c] = 1;
+			g[r][c] = g[c][r] = 1;
 		}
 		Queue<Integer> q = new LinkedList<>();
 		q.add(1);
