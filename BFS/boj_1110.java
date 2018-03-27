@@ -3,6 +3,7 @@ package practice;
 import java.util.*;
 
 // 백준, 1110, 더하기 사이클
+// 굳이 BFS 안써도 되지만 공부하는 차원에서 사용
 public class Main7 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
