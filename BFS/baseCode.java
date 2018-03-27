@@ -12,6 +12,7 @@ public class Main6 {
 		int n = sc.nextInt();
 		int m = sc.nextInt();
 		M = new int[n][m];
+		// 기준 점으로 부터 거리 차이(시간이 될 수도 있다)
 		dist = new int[n][m];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
@@ -21,6 +22,7 @@ public class Main6 {
 		Queue<Integer> qx = new LinkedList<>();
 		Queue<Integer> qy = new LinkedList<>();
 		int startx, starty;
+		// 방향
 		int dx[] = { 1, -1, 0, 0 };
 		int dy[] = { 0, 0, 1, -1 };
 
@@ -50,7 +52,7 @@ public class Main6 {
 				qy.add(nexty);
 			}
 		}
-		
+
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				System.out.print(dist[i][j] + " ");
