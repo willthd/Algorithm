@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
-// 안전영역
+// 백준, 2468, 안전영역
 public class Main {
 	public static Scanner sc = new Scanner(System.in);
 	public static int n = sc.nextInt();
@@ -26,10 +26,10 @@ public class Main {
 			return;
 		} else {
 			visited[x][y] = true;
-			countCells(x - 1, y);
-			countCells(x + 1, y);
-			countCells(x, y - 1);
-			countCells(x, y + 1);
+			countBlobs(x - 1, y);
+			countBlobs(x + 1, y);
+			countBlobs(x, y - 1);
+			countBlobs(x, y + 1);
 			return;
 		}
 	}
@@ -60,7 +60,7 @@ public class Main {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
 					if (no[i][j] != -1 && !visited[i][j]) {
-						countCells(i, j);
+						countBlobs(i, j);
 						cnt++;
 					}
 				}
