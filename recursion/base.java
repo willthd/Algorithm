@@ -10,6 +10,7 @@ public class Main7 {
 
 	// n^r(n파이r), 중복 순열(1~5 중에서 3개 뽑아서 중복 가능, 순서 무시 나열)
 	static void f1(int dep) {
+		// depth를 어디까지 진행할 것인가
 		if (dep == 3) {
 			for (int i = 0; i < 3; i++) {
 				System.out.print(a[i]);
@@ -17,6 +18,7 @@ public class Main7 {
 			System.out.println();
 			return;
 		}
+		// 가지를 몇 개로 뻗을 것인가
 		for (int i = 0; i < n; i++) {
 			a[dep] = i + 1;
 			f1(dep + 1);
