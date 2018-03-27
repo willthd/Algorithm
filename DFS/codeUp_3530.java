@@ -1,13 +1,11 @@
-package practice;
-
 import java.util.*;
 
 // CodeUp, 3530, 스도쿠
-public class Main5 {
+public class Main {
 	static int a[][];
 	static boolean check1[][], check2[][], check3[][];
 	static int x[], y[], zeroNum;
-	
+
 	static void check() {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
