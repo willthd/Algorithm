@@ -20,7 +20,6 @@ public class Main4 {
 		}
 		Queue<Integer> q = new LinkedList<>();
 		q.add(1);
-		visited[1] = true;
 		while(!q.isEmpty()) {
 			int now = q.poll();
 			visited[now] = true;
