@@ -21,9 +21,6 @@ public class Main4 {
 			visited = new boolean[n];
 			while(!q.isEmpty()) {
 				int now = q.poll();
-//				이렇게 하면 안된다. 시작점 무조건 true로 해버리기 때문
-//				때에 따라 다르다. baseCode같은 경우에는 true를 여기서 설정해야한다
-//				visited[now] = true;
 				for (int j = 0; j < n; j++) {
 					if (g[now][j] == 0) {
 						continue;
