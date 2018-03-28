@@ -24,16 +24,16 @@ public class Main4 {
 		while (!q.isEmpty()) {
 			int now = q.poll();
 			// next 값을 모르니 0부터 n + 1까지(정확히는 1부터) for문을 돈다
-			for (int i = 0; i < n + 1; i++) {
-				// grid 아니지만 2차원 배열 쓴다
-				if (g[now][i] == 0) {
+			for (int next = 0; next < n + 1; i++) {
+				// grid 아니지만 2차원 배열 쓴다. now edge와 next edge활용하기 위해
+				if (g[now][next] == 0) {
 					continue;
 				}
-				if (visited[i]) {
+				if (visited[next]) {
 					continue;
 				}
-				visited[i] = true;
-				q.add(i);
+				visited[next] = true;
+				q.add(next);
 			}
 		}
 		int cnt = 0;
