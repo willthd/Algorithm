@@ -32,10 +32,10 @@ public class Main6 {
 		qx.add(startx);
 		qy.add(starty);
 		dist[startx][starty] = 0;
+		visited[startx][starty] = true;
 		while (!qx.isEmpty()) {
 			int nowx = qx.poll();
 			int nowy = qy.poll();
-			visited[nowx][nowy] = true;
 			for (int i = 0; i < 4; i++) {
 				int nextx = nowx + dx[i];
 				int nexty = nowy + dy[i];
@@ -53,6 +53,7 @@ public class Main6 {
 					continue;
 				}
 				dist[nextx][nexty] = dist[nowx][nowy] + 1;
+				visited[nextx][nexty] = true;
 				qx.add(nextx);
 				qy.add(nexty);
 			}
