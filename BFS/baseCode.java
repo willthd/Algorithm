@@ -32,6 +32,8 @@ public class Main6 {
 		qx.add(startx);
 		qy.add(starty);
 		dist[startx][starty] = 0;
+		// 시작점 true로 시작하는 경우 있고 그렇지 않은 경우 있다
+		// 11403 에선 시작점 true하지 않는다
 		visited[startx][starty] = true;
 		while (!qx.isEmpty()) {
 			int nowx = qx.poll();
@@ -52,6 +54,7 @@ public class Main6 {
 				if (visited[nextx][nexty]) {
 					continue;
 				}
+				// 대개 3개. dist값 넣기, visited 배열 true 만들기. q에 다음 값 집어 넣기
 				dist[nextx][nexty] = dist[nowx][nowy] + 1;
 				visited[nextx][nexty] = true;
 				qx.add(nextx);
