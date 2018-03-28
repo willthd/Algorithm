@@ -23,6 +23,7 @@ public class Main4 {
 		q.add(1);
 		while (!q.isEmpty()) {
 			int now = q.poll();
+			// next 값을 모르니 0부터 n + 1까지(정확히는 1부터) for문을 돈다
 			for (int i = 0; i < n + 1; i++) {
 				// grid 아니지만 2차원 배열 쓴다
 				if (g[now][i] == 0) {
