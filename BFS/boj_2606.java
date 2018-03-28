@@ -6,6 +6,7 @@ import java.util.*;
 public class Main4 {
 	static int n, g[][];
 	static boolean visited[];
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
@@ -20,15 +21,15 @@ public class Main4 {
 		}
 		Queue<Integer> q = new LinkedList<>();
 		q.add(1);
-		while(!q.isEmpty()) {
+		while (!q.isEmpty()) {
 			int now = q.poll();
 			for (int i = 0; i < n + 1; i++) {
 				if (g[now][i] == 0) {
-          	continue;
-        }
-        if (visited[i]) {
-          	continue;
-        }
+					continue;
+				}
+				if (visited[i]) {
+					continue;
+				}
 				visited[i] = true;
 				q.add(i);
 			}
