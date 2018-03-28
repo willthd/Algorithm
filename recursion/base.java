@@ -90,7 +90,7 @@ public class Main7 {
 			System.out.println();
 			return;
 		}
-		for (int i = 0; i < n; i++) {
+		for (int i = start; i < n; i++) {
 			a[dep] = i + 1;
 			f4(dep + 1, i);
 		}
