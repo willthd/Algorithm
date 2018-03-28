@@ -24,6 +24,7 @@ public class Main4 {
 		while (!q.isEmpty()) {
 			int now = q.poll();
 			for (int i = 0; i < n + 1; i++) {
+				// grid 아니지만 2차원 배열 쓴다
 				if (g[now][i] == 0) {
 					continue;
 				}
