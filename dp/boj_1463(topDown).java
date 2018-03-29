@@ -1,36 +1,35 @@
 package practice;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
+// 백준, 1463, 1로 만들기(topDown)
+public class ppp {
+	static int[] dp;
 
-// 백준, 1463, 1로 만들기, topDown
-public class Solution {
-	static int[] inputs = new int[1000000 + 1];
-
-	public static int boj1463(int input) {
-		if (inputs[input] != -1) {
-			return inputs[input];
+	public static int func(int input) {
+		if (dp[input] != (int) 1e9) {
+			return dp[input];
 		}
 		if (input == 1) {
-			return 0;
+			dp[input] = 0;
+			return dp[input];
 		}
-		int result = boj1463(input - 1) + 1;
+		dp[input] = func(input - 1) + 1;
 		if (input % 2 == 0) {
-			result = Math.min(result, boj1463(input / 2) + 1);
+			dp[input] = Math.min(dp[input], func(input / 2) + 1);
 		}
 		if (input % 3 == 0) {
-			result = Math.min(result, boj1463(input / 3) + 1);
+			dp[input] = Math.min(dp[input], func(input / 3) + 1);
 		}
-		inputs[input] = result;
-		return inputs[input];
+		return dp[input];
 	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		String temp = sc.nextLine();
-		int input = Integer.parseInt(temp);
-		Arrays.fill(inputs, -1);
-		System.out.println(boj1463(input));
+		int n = sc.nextInt();
+		dp = new int[n + 1];
+		Arrays.fill(dp, (int) 1e9);
+		func(n);
+		System.out.println(dp[n]);
 	}
 }
