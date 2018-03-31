@@ -5,7 +5,7 @@ import java.util.*;
 // 백준, 1010, 다리 놓기
 // 재귀 -> 시간 초과 -> DP !
 // 조합은 점화식 있다 그것 이용했음
-// dp[n][r] = nCr
+// dp[n][r] = nCr  
 public class Main6 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
