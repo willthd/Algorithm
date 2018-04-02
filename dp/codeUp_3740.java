@@ -5,7 +5,7 @@ import java.util.*;
 // codeUp, 3740, 배낭 문제
 // 동전1과 비슷
 // dp[n][w] : n개로 무게 w이하를 만들 수 있는 물건들의 최대 가치
-// 얘는 초기화 필요 없네?
+// 얘는 초기화 필요 없네? 
 public class Main2 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -23,7 +23,7 @@ public class Main2 {
 				if (j - wt[i] < 0) {
 					dp[i][j] = dp[i - 1][j];
 				} else {
-					dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - wt[i]] + v[i]);					
+					dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - wt[i]] + v[i]);
 				}
 			}
 		}
