@@ -3,7 +3,7 @@ package practice;
 import java.util.*;
 
 // 백준, 1699, 제곱수의 합
-// dp[i] : 제곱수의 합으로 i를 만들 때, 제곱수의 최소 개수
+// dp[i] : 제곱수의 합으로 i를 만들 때, 제곱수의 최소 개수 
 public class Main2 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
