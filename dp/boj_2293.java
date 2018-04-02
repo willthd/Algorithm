@@ -2,7 +2,7 @@ package practice;
 
 import java.util.*;
 
-// 백준, 2293, 동전1
+// 백준, 2293, 동전1 
 // 전체 문제 : n개로 k원 만들 수 있는 경우의 수 : dp[n][k]
 // 대개 n과 n-1과의 관계를 설정했는데, 변수를 무엇으로 해야할지 감이 안왔다. 변수 두 개인 경우가 이렇다
 public class Main2 {
