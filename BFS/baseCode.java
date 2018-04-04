@@ -3,6 +3,7 @@ package practice;
 import java.util.*;
 
 // BFS, baseCode
+// 시작 위치에서 각 위치마다 가는데 필요한 이동 횟수(1로 된 곳만 이동할 수 있음)
 public class Main6 {
 	static int M[][];
 	static int dist[][];
