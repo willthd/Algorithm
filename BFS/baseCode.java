@@ -5,7 +5,7 @@ import java.util.*;
 // BFS, baseCode
 // 시작 위치에서 각 위치마다 가는데 필요한 이동 횟수(1로 된 곳만 이동할 수 있음)
 public class Main6 {
-	static int M[][];
+	static int grid[][];
 	static int dist[][];
 	static boolean visited[][];
 
@@ -13,13 +13,13 @@ public class Main6 {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int m = sc.nextInt();
-		M = new int[n][m];
+		grid = new int[n][m];
 		// 기준 점으로 부터 거리 차이(시간이 될 수도 있다)
 		dist = new int[n][m];
 		visited = new boolean[n][m];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				M[i][j] = sc.nextInt();
+				grid[i][j] = sc.nextInt();
 			}
 		}
 		Queue<Integer> qx = new LinkedList<>();
@@ -48,7 +48,7 @@ public class Main6 {
 					continue;
 				}
 				// 갈 수 없는 곳
-				if (M[nextx][nexty] == 0) {
+				if (grid[nextx][nexty] == 0) {
 					continue;
 				}
 				// 이미 방문한 곳
