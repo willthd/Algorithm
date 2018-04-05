@@ -23,6 +23,8 @@ public class pp {
 		q.add(new Node(0, 0, 0));
 		dist[0][0][0] = 1;
 		dist[0][0][1] = 1;
+		visited[0][0][0] = true;
+		visited[0][0][1] = true;
 		dist[n - 1][m - 1][0] = (int) 1e9;
 		dist[n - 1][m - 1][1] = (int) 1e9;
 		while (!q.isEmpty()) {
@@ -47,6 +49,16 @@ public class pp {
 					q.add(new Node(nextx, nexty, 1));
 					dist[nextx][nexty][1] = dist[now.x][now.y][0] + 1;
 				}
+			}
+			for (int k = 0; k < 2; k++) {
+				System.out.println(k + 1);
+				for (int i = 0; i < n; i++) {
+					for (int j = 0; j < m; j++) {
+						System.out.print(dist[i][j][k] + " ");
+					}
+					System.out.println();
+				}
+				System.out.println("******");
 			}
 		}
 		if (dist[n - 1][m - 1][0] == (int) 1e9 && dist[n - 1][m - 1][1] == (int) 1e9) {
