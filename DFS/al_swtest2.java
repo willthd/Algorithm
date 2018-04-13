@@ -2,7 +2,7 @@ import java.util.*;
 
 // 출근
 // bfs로 풀면 굉장히 복잡해진다
-public class Main4 {
+public class Main4 { 
 	static int n, m, g[][], max, cnt, check[];
 	static boolean visited[][];
 
