@@ -9,7 +9,7 @@ import java.util.*;
 public class Main4 {
 	static int n, g[][], k, max2;
 	static boolean visited[][];
-	
+
 	static void dfs(int x, int y, int depth) {
 		max2 = Math.max(max2, depth);
 		int dx[] = {-1, 1, 0, 0};
@@ -27,12 +27,13 @@ public class Main4 {
 				continue;
 			}
 			// 주의 !!
+			// 단지 같은 문제는 어떤 경로든 그 위치 가면 같은 경우라 생각해도 무방하지만, 여기선 해당 위치에 다른 경로로 가면 다른 경로로 생각해야 한다
 			visited[nextx][nexty] = true;
 			dfs(nextx, nexty, depth + 1);
 			visited[nextx][nexty] = false;
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int t = sc.nextInt();
@@ -61,8 +62,8 @@ public class Main4 {
 									g[i][j] += m;
 								}
 							}
-						}	
-						
+						}
+
 					}
 				}
 			}
