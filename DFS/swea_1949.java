@@ -18,7 +18,7 @@ public class Main4 {
 		for (int i = 0; i < 4; i++) {
 			int nextx = x + dx[i];
 			int nexty = y + dy[i];
-			if (nextx < 0 || nextx >= n || nexty < 0 || nexty >= n) {
+			if (nextx < 0 || nextx >= n || nexty < 0 || nexty >Main4.java= n) {
 				continue;
 			}
 			if (visited[nextx][nexty]) {
