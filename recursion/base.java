@@ -18,6 +18,8 @@ public class Main7 {
 			System.out.println();
 			return;
 		}
+
+		// 아래 for문 만으로 n^r번 돈다
 		// 가지를 몇 개로 뻗을 것인가
 		for (int i = 0; i < n; i++) {
 			a[dep] = i + 1;
