@@ -42,3 +42,5 @@ grid에서 조건 만족될 때 파고드는 경우
 1. bfs()와 마찬가지로 if문(continue) 밖에서 dfs호출한다. visited역시 맨 처음은 dfs함수 밖에서 visited 체크한다
 
 2. 동일 위치라도 값이 달라지는 경우 있다. dfs 이전에 visited[nextx][nexty] = true, 이후에 false 체크한다
+
+3. 알랩 출근 문제 주석 참고
