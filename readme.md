@@ -16,4 +16,6 @@
 
 * [geometric](./geometric)
 
+* [NP-C](./npComplete)
+
 * [and others](./andothers)
