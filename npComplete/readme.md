@@ -1,19 +1,26 @@
-## Algorithm
+## NP - Complete
 ---
-* [introduction](./introduction)
 
-* [recursion](./recursion)
+> 비결정 다항식 (Nondeterministic Polynomial - Complete) 문제
 
-* [sort](./sorting)
+P : Polynominal(다항식) 시간에 문제를 풀수 있는 문제, 시간복잡도를 n의 다항식으로 구현할 수 있는 문제
 
-* [dynamic programming](./dp)
+NP : 문제 해결 방법을 찾는 것은 어렵지만 답을 제시했을 때 맞는지 틀리지를 판별하는 것은 쉬운 문제
 
-* [BFS](./BFS)
+NP - C : NP 문제 중 가장 어려운 문제로 최적해를 구하는 방법을 알 수 없다
 
-* [DFS](./DFS)
+-> 외판원 문제(O(n!)), 집합 커버링 문제(O(2^n))
 
-* [deterministic Algorithm](./deterministicAlgorithm)
+NP - C 문제라는 것이 확인되면 빠른 시간 내에 답을 찾을 수 없기 때문에 탐욕 알고리즘과 같은 근사 알고리즘을 사용한다
 
-* [geometric](./geometric)
+### NP - C 문제인가? (가능성)
 
-* [and others](./andothers)
+항목이 적을 때는 알고리즘이 빠른데, 항목이 늘어나면서 갑자기 느려진다
+
+"X의 모든 조합"이라고 하면 보통 NP-C 문제
+
+더 작은 하위 문제로 변환할 수 없어서 X의 가능한 모든 버전을 계산해야 하는 경우 NP-C 일 수 있다
+
+문제가 수열을 포함하는 경우 (외판원 문제)
+
+문제에 집합이 있고 풀기가 어려운 경우 (집합 커버링 문제)
