@@ -18,4 +18,6 @@
 
 * [NP-C](./npComplete)
 
+* [KNN](./knn)
+
 * [and others](./andothers)
