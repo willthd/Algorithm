@@ -14,4 +14,6 @@
 
 * [deterministic Algorithm](./deterministicAlgorithm)
 
+* [geometric](./geometric)
+
 * [and others](./andothers)
