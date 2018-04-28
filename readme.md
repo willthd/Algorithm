@@ -12,4 +12,6 @@
 
 * [DFS](./DFS)
 
+* [deterministic Algorithm](./deterministicAlgorithm)
+
 * [and others](./andothers)
