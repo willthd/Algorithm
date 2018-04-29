@@ -8,6 +8,8 @@
 
 * [dynamic programming](./dp)
 
+* [brute force](./bruteForce)
+
 * [BFS](./BFS)
 
 * [DFS](./DFS)
