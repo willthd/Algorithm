@@ -2,7 +2,7 @@ package practice;
 
 import java.util.*;
 
-// 백준, 2178, 미로탐색
+// 백준, 2178, 미로탐색  
 public class pp {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
