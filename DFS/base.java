@@ -1,13 +1,15 @@
 package practice;
+
 import java.util.*;
 
-public class Main2 {
+// dp[n][w] : n개로 w무게 이하 만큼 넣을 수 있는 최대 가치
+public class Singleton {
 	static int n, g[][], dist[][];
 	static boolean visited[][];
 	
-	public static void dfs(int x, int y) {
-		int dx[] = {-1, 1, 0, 0};
-		int dy[] = {0, 0, -1, 1};
+	static void dfs(int x, int y) {
+		int dx[] = {0, 1, 0, -1};
+		int dy[] = {-1, 0, 1, 0};
 		for (int i = 0; i < 4; i++) {
 			int nx = x + dx[i];
 			int ny = y + dy[i];
@@ -21,14 +23,17 @@ public class Main2 {
 				continue;
 			}
 			visited[nx][ny] = true;
-			dist[nx][ny] = dist[x][y] + 1;
+			if (dist[nx][ny] == 0) {
+				dist[nx][ny] = dist[x][y] + 1;
+			} else {
+				dist[nx][ny] = Math.min(dist[x][y] + 1, dist[nx][ny]);				
+			}
 			dfs(nx, ny);
-			// 잊지말기
 			visited[nx][ny] = false;
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] ags) {
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
 		g = new int[n][n];
@@ -39,7 +44,6 @@ public class Main2 {
 				g[i][j] = sc.nextInt();
 			}
 		}
-		// 여기서 처음 값 설정
 		visited[0][0] = true;
 		dist[0][0] = 1;
 		dfs(0, 0);
