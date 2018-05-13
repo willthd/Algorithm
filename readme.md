@@ -10,7 +10,7 @@
 
 * [brute force](./bruteForce)
 
-* [BFS](./BFS) 
+* [BFS](./BFS)
 
 * [DFS](./DFS)
 
