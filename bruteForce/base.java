@@ -114,8 +114,8 @@ public class pp {
 		Scanner sc = new Scanner(System.in);
 		r = sc.nextInt();
 		a = new int[r];
-		check = new boolean[4];
-		count = new int[4];
+		check = new boolean[5];
+		count = new int[5];
 		// for (int i = 0; i < 4; i++) {
 		// count[i] = sc.nextInt();
 		// }
