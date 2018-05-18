@@ -3,10 +3,10 @@ package practice;
 import java.util.*;
 
 // dp[n][w] : n개로 w무게 이하 만큼 넣을 수 있는 최대 가치
-public class Singleton {
+public class Base {
 	static int n, g[][], dist[][];
 	static boolean visited[][];
-	
+
 	static void dfs(int x, int y) {
 		int dx[] = {0, 1, 0, -1};
 		int dy[] = {-1, 0, 1, 0};
@@ -26,13 +26,13 @@ public class Singleton {
 			if (dist[nx][ny] == 0) {
 				dist[nx][ny] = dist[x][y] + 1;
 			} else {
-				dist[nx][ny] = Math.min(dist[x][y] + 1, dist[nx][ny]);				
+				dist[nx][ny] = Math.min(dist[x][y] + 1, dist[nx][ny]);
 			}
 			dfs(nx, ny);
 			visited[nx][ny] = false;
 		}
 	}
-	
+
 	public static void main(String[] ags) {
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
