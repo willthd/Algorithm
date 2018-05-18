@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="ko" xml:lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no" />
+	
+	<!-- <title>구름 :: 클라우드 프로그래밍 교육/개발 솔루션</title> -->
+	<title>구름TEST</title>
+	<link rel="stylesheet" href="/libs/bootstrap/css/bootstrap-edu.css">
+	<link rel="stylesheet" href="/css/goormedu.css">
+	<link rel="stylesheet" href="/css/coding_test.css">
+	<link rel="stylesheet" href="/css/error.css">
+	<link rel="stylesheet" href="/css/mobile.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?1">
+</head>
+<body>
+	<header>
+		
+<div class="btn-group dropup contact_wrap hidden-xs">
+	<a class="dropdown-toggle contact_bt" data-toggle="dropdown" aria-expanded="true">
+		<i class="fa fa-question-circle" style="margin-right: 8px;"></i>문의하기
+	</a>
+	<ul class="dropdown-menu dropdown-menu-right contact">
+		
+		
+			  
+			<div class="contact_title">
+				언제든지 연락주세요.
+				<button type="button" class="mobile_close_btn close" data-dismiss="modal" aria-label="Close" style="margin-top: -10px;display: none;"><span aria-hidden="true">×</span></button>
+			</div>
+			<p style="padding:18px 0 0 0;margin: 0;">구름TEST 서비스의 품질 유지를 위해 다양한 채널을 통해 기술적인 지원을 하고 있습니다. 시간과 장소에 관계없이 페이스북, 이메일로 연락 주십시오. 빠른 시간 내에 처리해 드리겠습니다.</p>
+			<br>
+			<form class="form-horizontal" role="form" onsubmit="return false;">
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="contact_us_title">제목</label>
+					<div class="col-sm-10 input_container">
+						<input type="text" class="form-control contact_input" id="contact_us_title" placeholder="제목을 입력해주세요.">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="contact_us_email">이메일</label>
+					<div class="col-sm-10 input_container">
+						<input type="text" class="form-control contact_input" id="contact_us_email" placeholder="이메일 주소를 적어주세요.">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="contact_us_content">내용</label>
+					<div class="col-sm-10 input_container">
+						<textarea class="form-control contact_input" id="contact_us_content" placeholder="문의하실 내용을 입력해주세요." rows="5"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="contact_us_env">환경</label>
+					<div class="col-sm-10 input_container">
+						<textarea class="form-control contact_input" id="contact_us_env" placeholder="사용 환경을 입력해주세요. e.g. 디바이스, 운영체제, 브라우저 등" rows="2"></textarea>
+					</div>
+				</div>
+				<div id="goorm-info-send-wait" class="alert alert-info pull-left contact-msg" role="alert">
+					<i class="fa fa-spinner fa-pulse" style="margin-right:5px;"></i>
+					전송중입니다.
+				</div>
+				<div id="goorm-info-send-success" class="alert alert-success pull-left contact-msg" role="alert">
+					<i class="fa fa-paper-plane" style="margin-right:5px;"></i>
+					전송되었습니다. 빠른 시간 내에 처리해드리겠습니다.
+				</div>
+				<div id="goorm-info-send-fail" class="alert alert-danger pull-left contact-msg" role="alert">
+					<i class="fa fa-exclamation-circle" style="margin-right:5px;"></i>
+					전송에 실패했습니다. 다시 시도하시거나 직접 메일을 보내주세요.
+				</div>
+				<div id="goorm-info-send-fail-no-email" class="alert alert-danger pull-left contact-msg" role="alert">
+					<i class="fa fa-exclamation-circle" style="margin-right:5px;"></i>
+					지원자의 이메일 정보를 찾을 수 없습니다. 새로고침 후 다시 시도하시거나, 직접 메일을 보내주세요.
+				</div>
+				<div id="goorm-info-email-wrong" class="alert alert-danger pull-left contact-msg" role="alert">
+					<i class="fa fa-exclamation-circle" style="margin-right:5px;"></i>
+					이메일 주소를 정확히 입력해 주세요.
+				</div>
+				<div id="goorm-info-need-input" class="alert alert-danger pull-left contact-msg" role="alert">
+					<i class="fa fa-exclamation-circle" style="margin-right:5px;"></i>
+					입력되지 않은 항목이 있습니다.
+				</div>
+				
+				<span class="submit">
+					<input type="submit" name="contact" class="btn btn-default pull-right contact_goorm_send contact_input" value="메일 보내기">
+
+					<!-- <a type="button" class="btn btn-primary facebook-btn facebook_contact pull-right">
+						<i class="fa fa-facebook-square"></i> 구름 페이스북
+					</a> -->
+				</span>
+			</form>
+		
+		
+	</ul>
+</div>
+
+
+<script>
+	var global_contact_quiz_index = null;
+	var contact_init = function () {
+		var contact = $('.contact');
+		var contact_bt = $('.contact_bt');
+		var goorm_title = $('#contact_us_title');
+		var goorm_email = $('#contact_us_email');
+		var goorm_content = $('#contact_us_content');
+		var goorm_env = $('#contact_us_env');
+		var goorm_title_form = goorm_title.parents('.form-group');
+		var goorm_email_form = goorm_email.parents('.form-group');
+		var goorm_content_form = goorm_content.parents('.form-group');
+		var goorm_env_form = goorm_env.parents('.form-group');
+		var goorm_submit = $('.contact_goorm_send');
+		
+		var goorm_wait = $('#goorm-info-send-wait');
+		var goorm_success = $('#goorm-info-send-success');
+		var goorm_fail = $('#goorm-info-send-fail');
+		var goorm_fail_no_email = $('#goorm-info-send-fail-no-email');
+
+		
+			
+		// var facebook = $('.facebook_contact');
+		var user_agent = navigator.userAgent;
+		
+		
+		var initial_contact_height = $('.contact').height();
+			
+		if (/mobile/i.test(user_agent) || /android/i.test(user_agent)) {
+			contact.css('overflow', 'scroll');
+			initial_contact_height = 525;
+			var $header_menu = $('.header_tool ul.dropdown-menu');
+			$header_menu.find('a[href="/manage/my"]').hide();
+			$header_menu.find('li.divider').before('<li><a href="/search">검색</a></li>');
+			$header_menu.find('li.divider').after('<li><a class="contact_mobile_bt">문의하기</a></li>');
+			
+			$('.contact_mobile_bt').click(function () {
+				$('.contact').show();
+			});
+			
+			$('.contact .close').click(function () {
+				$('.contact').hide();
+			});
+		}
+
+		var resize = function () {
+			var contact_height = initial_contact_height + 20;
+			var window_height = $(window).height() - 100;	// 100 means button
+
+			if (contact_height > window_height) {
+				contact.outerHeight(window_height);	
+			} else {
+				contact.height(initial_contact_height);
+			}
+		};
+
+		$(window).resize(function () {
+			resize();
+		});
+		
+		contact.click(function () {
+			return false;
+		});
+		
+		//manual tab implementation
+		$('.contact .nav-tabs li a').click(function(){
+			var clicked_tab = $(this);
+			$('.contact .nav-tabs li').removeClass('active')
+			clicked_tab.parent().addClass('active')
+
+			$('.contact .tab-content div').removeClass('active').removeClass('in');
+			$(clicked_tab.attr('href')).addClass('active').addClass('in');
+			resize();
+		});
+		
+		
+		goorm_submit.click(function () {
+			var error = false;
+			var need_input = false;
+			var title_val = goorm_title.val();
+			var email_val = goorm_email.val();
+			var content_val = goorm_content.val();
+			var env_val = goorm_env.val();
+			
+			if (!title_val) {
+				goorm_title_form.addClass('has-error');
+				error = true;
+				need_input = true;
+			}
+			
+			if (goorm_email_form.length !== 0) {
+				if (!email_val) {
+					goorm_email_form.addClass('has-error');
+					error = true;
+					need_input = true;
+				} else {
+					var email_pattern = /^([0-9a-zA-Z._-]+)@([0-9a-zA-Z_-]+)(\.[a-zA-Z0-9]+)(\.[a-zA-Z0-9]+)?(\.[a-zA-Z]+)?$/;
+					if (email_pattern.test(email_val) === false) {
+						goorm_email_form.addClass('has-error');
+						error = true;
+						
+						$('#goorm-info-email-wrong').show();
+						goorm_submit.hide();
+						
+						setTimeout(function () {
+							goorm_submit.show();
+							$('#goorm-info-email-wrong').hide();
+						}, 3000);
+						return;
+					}
+				}
+			}
+			
+			if (!content_val) {
+				goorm_content_form.addClass('has-error');
+				error = true;
+				need_input = true;
+			}
+			
+			if (need_input) {
+				$('#goorm-info-need-input').show();
+				goorm_submit.hide();
+
+				setTimeout(function () {
+					goorm_submit.show();
+					$('#goorm-info-need-input').hide();
+				}, 3000);
+			}
+			if (!error) {
+				// facebook.hide();
+				goorm_wait.show();
+				$(this).hide();
+				
+				$.post('/contact', {
+					'title': title_val,
+					'email': email_val,
+					'content': content_val,
+					'env': env_val,
+					'url': location.href,
+					'user_agent': navigator.userAgent,
+					'resolution': window.screen.availWidth + ' X ' + window.screen.availHeight
+				}, function (result) {
+					if(result.result) {
+						goorm_success.show();
+						
+						setTimeout(function () {
+							if (/mobile/i.test(user_agent) || /android/i.test(user_agent)) {
+								$('.contact .close').click();
+							} else {
+								contact_bt.click();
+							}
+							
+							goorm_title.val('');
+							goorm_content.val('');
+							goorm_env.val('');
+							
+							goorm_submit.show();
+							goorm_success.hide();
+							// facebook.show();
+						}, 3000);
+					} else {
+						// facebook.hide();
+						if (result.no_email) {
+							goorm_fail_no_email.show();
+						} else {
+							goorm_fail.show();
+						}
+						
+						setTimeout(function () {
+							goorm_submit.show();
+							if (result.no_email) {
+								goorm_fail_no_email.hide();
+							} else {
+								goorm_fail.hide();
+							}
+							// facebook.show();
+						}, 3000);
+					}
+					
+					goorm_wait.hide();
+				});
+			}
+		});
+
+		
+		
+		// facebook.click(function () {
+		// 	window.open('https://www.facebook.com/groups/goorm.edu/');
+		// });
+		
+		$('#contact_us_title, #contact_us_content, #contact_us_env, #contact_us_email').keydown(function () {
+			$(this).parents('.form-group').removeClass('has-error');
+		});
+
+		resize();	
+	};
+</script>
+
+		<!-- <div id="goorm-header" class="navbar-fixed-top">
+  <div class="container">
+	  <a class="header_logo pull-left" title="구름EDU" href="/">
+		  <span class="sr-only">구름EDU</span>
+		  <img src="/images/goormtest_eng_logo_color.png" width="137" height="34"
+			   srcset="/images/goormtest_eng_logo_color.png 3x, /images/goormtest_eng_logo_color.png 2x, /images/goormtest_eng_logo_color.png 1x"
+			   alt="구름에듀">
+	  </a>
+  </div>
+</div>
+ -->
+<div id="goorm-header" class="navbar navbar-fixed-top">
+  <div class="container">
+	  <div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_menu">
+			<i class="fa fa-bars" aria-hidden="true"></i>
+		</button>
+		<a class="header_logo navbar-brand" title="" href="/">
+			<span class="sr-only"></span>
+
+		  <img src="/images/goormtest_eng_logo_color.png"
+			   alt="구름TEST">
+
+	 	 </a>
+		</div>
+  </div>
+</div>
+<script>
+	var nav_mobile_toggle = document.getElementsByClassName('navbar-toggle');
+	var nav_collapse = document.getElementById('nav_menu');
+
+	nav_mobile_toggle[0].onclick = function() {
+		var i_tag = this.childNodes[1];
+		if (nav_collapse && i_tag && i_tag.tagName && i_tag.tagName.toLowerCase() === 'i') {
+			if (nav_collapse.getAttribute('aria-expanded') === 'true') {
+				i_tag.className = i_tag.className.replace('fa-times', 'fa-bars');
+			} else {
+				i_tag.className = i_tag.className.replace('fa-bars', 'fa-times');
+				
+			}
+		}
+	};
+</script>
+<script>
+	var xmlhttp=new XMLHttpRequest();
+	xmlhttp.open("GET", '/organization/white_logo');
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+			if(xmlhttp.status == 200){
+				var response = xmlhttp.responseText;
+
+				if (response[0] === '{') {
+					response = JSON.parse(xmlhttp.responseText);
+					if(response.new_logo) {
+						if (document.getElementsByClassName('ch_logo').length) {
+							document.getElementsByClassName('ch_logo')[0].src = response.new_logo;
+							document.getElementsByClassName('ch_logo')[0].style.display = 'inline-block';
+						}
+					} else {
+						if (document.getElementsByClassName('ch_logo').length) {
+							document.getElementsByClassName('ch_logo')[0].style.visibility = 'hidden';
+						}
+						if (document.getElementsByClassName('ch_name_logo').length) {
+							document.getElementsByClassName('ch_name_logo')[0].innerHTML = response.name;
+						}
+					}
+				} else {
+					if (document.getElementsByClassName('ch_logo').length) {
+						document.getElementsByClassName('ch_logo')[0].style.display = 'inline-block';
+					}
+				}
+			}
+		}
+	}
+	xmlhttp.send();
+</script>
+	</header>
+	<section>
+		<div class="container">
+			<div class="row content_box">
+				<div class="col-md-12">
+					<br />
+					<h1><i class="fa fa-frown-o"></i> 죄송합니다. 현재 이 페이지를 이용할 수 없습니다.</h1>
+					<br />
+					<hr style="border-top-color: #ccc;" />
+					<p>문의사항은 아래의 이메일 주소로 언제든지 연락주시길 바라며, 저희가 개발한 서비스가 여러분들께 유용하게 쓰여지길 다시 한 번 소망합니다!</p>
+					<p><a href="mailto:contact@goorm.io">contact@goorm.io</a></p>
+					<br />
+					<br />
+				</div>
+				<div class="col-md-12">
+					<p>감사합니다.</p>
+					<p>구름TEST 개발팀 드림.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<style>
+	.footer__mobile {
+		display: block;
+	}
+	.footer__desktop {
+		display: none;
+	}
+	footer {
+		background-color: #3d485c;
+		-webkit-user-select: none;
+		   -moz-user-select: none;
+		    -ms-user-select: none;
+		        user-select: none;
+		margin-top: 80px;
+		padding: 0;
+	}
+	footer a,
+	footer a:focus,
+	footer a:hover,
+	footer a:active,
+	footer a:visited {
+		text-decoration: none;
+	}
+
+	.footer__top {
+		height: 72px;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+	}
+	.footer-agreements,
+	.footer-privacy {
+		font-size: 14px;
+		color: #ffffff;
+		line-height: 72px;
+		padding-left: 10px;
+		padding-right: 10px;
+		color: #ffffff;
+		font-weight: 300;
+		display: inline-block;
+	}
+	.footer-agreements:hover,
+	.footer-agreements:active,
+	.footer-agreements:focus,
+	.footer-agreements:visited,
+	.footer-privacy:hover,
+	.footer-privacy:active,
+	.footer-privacy:focus,
+	.footer-privacy:visited {
+		color: #ffffff;
+	}
+	
+	.footer__divider {
+		height: 1px;
+		width: 100%;
+		background-color: #2d3645;
+	}
+	
+	.footer__bottom {
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+		padding-top: 30px;
+		padding-bottom: 50px;
+		text-align: center;
+	}
+	.footer-lang {
+		position: relative;
+		width: 164px;
+		height: 36px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.footer-lang-button {
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: #ffffff;
+		-webkit-border-radius: 3px;
+		        border-radius: 3px;
+		border: solid 1px #dfe3e9;
+		color: #313338;
+		line-height: 34px;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+		position: relative;
+		padding-left: 10px;
+		font-size: 14px;
+		cursor: pointer;
+	}
+	.footer-lang-button:hover,
+	.footer-lang-button:active,
+	.footer-lang-button:focus,
+	.footer-lang-button:visited {
+		color: #313338;
+	}
+	.footer-lang-button > i {
+		position: absolute;
+		right: 6px;
+		line-height: 34px;
+		font-size: 24px;
+		-webkit-user-select: none;
+		   -moz-user-select: none;
+		    -ms-user-select: none;
+		        user-select: none;
+	}
+	.footer-lang-dropdown {
+		/* display: none; */
+		position: relative;
+		background-color: #ffffff;
+		-webkit-border-radius: 3px;
+		        border-radius: 3px;
+		border: solid 1px #dfe3e9;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+		top: 2px;
+	}
+	.footer-lang-dropdown > a {
+		display: block;
+		color: #313338;
+		padding-left: 10px;
+		height: 36px;
+
+		line-height: 34px;
+	}
+	.footer-lang-dropdown > a:hover,
+	.footer-lang-dropdown > a:active,
+	.footer-lang-dropdown > a:focus {
+		background-color: #f1f3f6;
+		color: #609ae9;
+	}
+	.footer-codigm-signature-wrapper {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 25px;
+		width: 117px;
+	}
+	.footer-codigm-signature {
+		width: 100%;
+		height: auto;
+	}
+	.footer-codigm-info {
+		text-align: center;
+		font-size: 12px;
+		color: #dfe3e9;
+		margin-top: 12px;
+		line-height: 25px;
+		font-weight: 300;
+		word-break: keep-all;
+	}
+	.footer-codigm-info a {
+		color: inherit;
+	}
+	.footer-slogan {
+		margin-top: 12px;
+		opacity: 0.3;
+		width: 320px;
+		height: auto;
+	}
+	.footer-rights {
+		text-align: center;
+		font-size: 12px;
+		color: #ffffff;
+		margin-top: 18px;
+		font-weight: 400;
+	}
+	
+	@media (min-width: 768px) {
+		.footer__mobile {
+			display: none;
+		}
+		.footer__desktop {
+			display: block;
+		}
+		
+		.footer__top {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+		}
+		.footer__top__left {
+			-webkit-box-flex: 1;
+			-webkit-flex: 1;
+			    -ms-flex: 1;
+			        flex: 1;
+			text-align: left;
+			margin-left: -10px;
+		}
+		.footer-lang {
+			margin-top: auto;
+			margin-bottom: auto;
+			margin-left: 0;
+			margin-right: 0;
+		}
+		
+		.footer__bottom {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+			text-align: left;
+		}
+		.footer__bottom__left {
+			-webkit-box-flex: 1;
+			-webkit-flex: 1;
+			    -ms-flex: 1;
+			        flex: 1;
+		}
+		.footer-codigm-signature-wrapper {
+			margin-left: 0;
+			margin-right: 0;
+			margin-top: 6px;
+		}
+		.footer-codigm-info {
+			text-align: start;
+			margin-top: 18px;
+		}
+		.footer-slogan {
+			margin-top: 24px;
+			width: 420px;
+		}
+		
+		.footer__bottom__right {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: justify;
+			-webkit-justify-content: space-between;
+			    -ms-flex-pack: justify;
+			        justify-content: space-between;
+    		-webkit-box-orient: vertical;
+    		-webkit-box-direction: normal;
+    		-webkit-flex-direction: column;
+    		    -ms-flex-direction: column;
+    		        flex-direction: column;
+		}
+		.footer-goorm-services {
+			width: 180px;
+			margin-left: auto;
+		}
+		.footer-goorm-services__title {
+			font-size: 14px;
+			color: #ffffff;
+		}
+		.footer-goorm-services__list {
+			list-style-type: none;
+			padding-left: 0;
+			margin-top: 11px;
+		}
+		.footer-goorm-services__list > li {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: horizontal;
+			-webkit-box-direction: normal;
+			-webkit-flex-direction: row;
+			    -ms-flex-direction: row;
+			        flex-direction: row;
+			margin-bottom: 9px;
+		}
+		.footer-goorm-services__link-site {
+			padding-top: 3px;
+			padding-left: 2px;
+			margin-right: 10px;
+			-webkit-box-flex: 1;
+			-webkit-flex: 1;
+			    -ms-flex: 1;
+			        flex: 1;
+		}
+		.footer-goorm-services__link-site > img {
+			height: 22px;
+		}
+		.footer-goorm-services__link-fb {
+			width: 30px;
+			height: 30px;
+			padding: 2px;
+			-webkit-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		.footer-rights {
+			font-size: 14px;
+			margin-top: 0;
+			font-weight: 300;
+		}
+	}
+</style>
+
+<footer class="footer__mobile">
+
+	<div class="footer__top">
+		<a class="footer-agreements" target="_blank" href="https://accounts.goorm.io/service">이용약관</a>
+		<a class="footer-privacy" target="_blank" href="https://accounts.goorm.io/privacy_statement">개인정보처리방침</a>
+	</div>
+	<div class="footer__divider">
+	</div>
+	<div class="footer__bottom">
+		<!--    LANGUAGE SELECTOR START    -->
+		<!--
+		<div class="footer-lang">
+			<a class="footer-lang-button">한국어<i class="gi gi-caret-down"></i></a>
+			<div class="footer-lang-dropdown" style="visibility: hidden;">
+				<a href="/kr">한국어</a>
+				<a href="/en">English</a>
+				<a href="/jp">日本語</a>
+				<a href="/jp">중국어</a>
+			</div>
+		</div>
+		-->
+		<!--    LANGUAGE SELECTOR END    -->
+		<a class="footer-codigm-signature-wrapper" href="http://codigm.com" target="_blank"><img class="footer-codigm-signature" src="https://statics.goorm.io/logo/logo_codigm_white.svg" alt="codigm"></a>
+		
+		<div class="footer-codigm-info">
+			<div><span>상호 : </span><span>(주)코다임</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>대표 : </span><span>류성태</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>개인정보보호책임자 : </span><span>김현화</span></div>
+			<div><span>경기도 </span><span>성남시 </span><span>분당구 </span><span>대왕판교로 </span><span>645번길 </span><span>16 </span><span>NHN엔터테인먼트 </span><span>플레이뮤지엄 </span><span>5F</span></div>
+			<div><span>사업자등록번호 : </span><span>124-87-39200</span></div>
+			<div></div>
+			<div><span>통신판매업신고번호 : </span><span>제2016-서울강남-02337호</span></div>
+			<div><span>TEL : </span><span>031-8038-3228</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Email : </span><a href='mailto:contact@goorm.io'>contact@goorm.io</a></div>
+		</div>
+		
+		<div class="footer-rights">
+			ⓒ codigm Corp. All Rights Reserved.
+		</div>
+	</div>
+</footer>
+	
+
+<footer class="footer__desktop">
+
+	<div class="footer__top container">
+		<div class="footer__top__left">
+			<a class="footer-agreements" target="_blank" href="https://accounts.goorm.io/service">이용약관</a>
+			<a class="footer-privacy" target="_blank" href="https://accounts.goorm.io/privacy_statement">개인정보처리방침</a>
+		</div>
+		<!--    LANGUAGE SELECTOR START    -->
+		<!--
+		<div class="footer__top__right footer-lang">
+			<a class="footer-lang-button">한국어<i class="gi gi-caret-down"></i></a>
+			<div class="footer-lang-dropdown" style="visibility: hidden;">
+				<a href="/kr">한국어</a>
+				<a href="/en">English</a>
+				<a href="/jp">日本語</a>
+				<a href="/jp">중국어</a>
+			</div>
+		</div>
+		-->
+		<!--    LANGUAGE SELECTOR END    -->
+	</div>
+	<div class="footer__divider">
+	</div>
+	<div class="footer__bottom container">
+		<div class="footer__bottom__left">
+			<a class="footer-codigm-signature-wrapper" href="http://codigm.com" target="_blank"><img class="footer-codigm-signature" src="https://statics.goorm.io/logo/logo_codigm_white.svg" alt="codigm"></a>
+			
+			<div class="footer-codigm-info">
+				<div><span>상호 : </span><span>(주)코다임</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>대표 : </span><span>류성태</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>개인정보보호책임자 : </span><span>김현화</span></div>
+				<div><span>경기도 </span><span>성남시 </span><span>분당구 </span><span>대왕판교로 </span><span>645번길 </span><span>16 </span><span>NHN엔터테인먼트 </span><span>플레이뮤지엄 </span><span>5F</span></div>
+				<div><span>사업자등록번호 : </span><span>124-87-39200</span></div>
+				<div><span>원격평생교육시설 </span><span>신고번호 : <span>제서부일126호</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>통신판매업신고번호 : </span><span>제2016-서울강남-02337호</span></div>
+				<div><span>TEL : </span><span>031-8038-3228</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Email : </span><a href='mailto:contact@goorm.io'>contact@goorm.io</a></div>
+			</div>
+			
+		</div>
+		<div class="footer__bottom__right">
+			<div class="footer-goorm-services">
+				<div class="footer-goorm-services__title">구름 서비스</div>
+				<ul class="footer-goorm-services__list">
+					<li>
+						<a class="footer-goorm-services__link-site" href="https://ide.goorm.io" target="_blank"><img src="https://statics.goorm.io/logo/ide/logo_ide_white.svg" alt="goormide"></a>
+						<a class="footer-goorm-services__link-fb" href="https://www.facebook.com/goormIDE/" target="_blank"><img src="https://statics.goorm.io/common/footer_facebook_btn.svg" alt="facebook"></i></a>
+					</li>
+					<li>
+						<a class="footer-goorm-services__link-site" href="https://edu.goorm.io" target="_blank"><img src="https://statics.goorm.io/logo/edu/logo_edu_white.svg" alt="goormide"></a>
+						<a class="footer-goorm-services__link-fb" href="https://www.facebook.com/goormEDU/" target="_blank"><img src="https://statics.goorm.io/common/footer_facebook_btn.svg" alt="facebook"></i></a>
+					</li>
+					<li>
+						<a class="footer-goorm-services__link-site" href="https://codingtest.goorm.io" target="_blank"><img src="https://statics.goorm.io/logo/test/logo_test_white.svg" alt="goormide"></a>
+						<a class="footer-goorm-services__link-fb" href="https://www.facebook.com/goormTEST/" target="_blank"><img src="https://statics.goorm.io/common/footer_facebook_btn.svg" alt="facebook"></i></a>
+					</li>
+				</ul>
+			</div>
+			<div class="footer-rights">
+				ⓒ codigm Corp. All Rights Reserved.
+			</div>
+		</div>
+	</div>
+</footer>
+<!--    LANGUAGE SELECTOR START    -->
+<!--
+<script>
+	var open_lang = function(dropdown, caret) {
+		dropdown.style.visibility = 'visible';
+		caret.classList.remove('gi-caret-down');
+		caret.classList.add('gi-caret-up');
+	};
+	var close_lang = function(dropdown, caret) {
+		dropdown.style.visibility = 'hidden';
+		caret.classList.remove('gi-caret-up');
+		caret.classList.add('gi-caret-down');
+	};
+	
+	var lang_button_list = document.getElementsByClassName('footer-lang-button');
+	for (var i = 0; i < lang_button_list.length; i++) {
+		lang_button_list[i].onclick = function(event) {
+			var dropdown = event.currentTarget.parentElement.getElementsByClassName('footer-lang-dropdown')[0];
+			var caret = event.currentTarget.getElementsByClassName('gi')[0];
+			if (dropdown.style.visibility === 'visible') {
+				close_lang(dropdown, caret);
+			} else {
+				open_lang(dropdown, caret);
+			}
+			event.preventDefault();
+			event.stopPropagation();
+		};
+	}
+	
+	document.body.onclick = function(event) {
+		var lang_list = document.getElementsByClassName('footer-lang');
+		for (var i = 0; i < lang_list.length; i++) {
+			var dropdown = lang_list[i].getElementsByClassName('footer-lang-dropdown')[0];
+			if (dropdown.style.visibility === 'visible') {
+				close_lang(dropdown, lang_list[i].getElementsByClassName('gi')[0]);
+			}
+		}
+	}
+</script>
+-->
+<!--    LANGUAGE SELECTOR END    -->
+
+
+<script>
+	if (window.location.host && window.location.host.indexOf('.dev.') === -1/* && window.location.host !== 'nightwatch.goorm.io'*/) {
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-44863335-1', 'auto', 'goorm');
+	  ga('goorm.send', 'pageview');
+	  if (window.location.host === 'codingtest.goorm.io' || window.location.hostname === 'codingtest.goorm.io') {
+		ga('create', 'UA-44863335-13', 'auto');
+	  	ga('send', 'pageview');  
+	  }
+	  
+	}
+</script>
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1602541630050283'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1602541630050283&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript" src="/libs/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			contact_init();
+		});
+	</script>
+</body>
+</html>
