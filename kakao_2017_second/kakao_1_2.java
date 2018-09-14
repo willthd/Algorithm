@@ -9,14 +9,21 @@ public class ppp {
 		String st = sc.next();
 		Stack<Integer> sta = new Stack<>();
 		int num = 0;
+		String strNum = "";
 		for (int i = 0; i < st.length(); i++) {
 			if (isNum(st.substring(i, i + 1))) {
-				System.out.println(num);
+				strNum += st.substring(i, i + 1);
 				sta.push(num);
-				num = Integer.parseInt(st.substring(i, i + 1));
+				num = 0;
 			} else {
+				if (!strNum.equals("")) {
+					num = Integer.parseInt(strNum);					
+				}
+				strNum = "";
 				String ch = st.substring(i, i + 1);
-				if (ch.equals("D")) {
+				if (ch.equals("S")) {
+					num = num;
+				} else if (ch.equals("D")) {
 					num = (int) Math.pow(num, 2);
 				} else if (ch.equals("T")) {
 					num = (int) Math.pow(num, 3);
@@ -29,7 +36,6 @@ public class ppp {
 				}
 			}
 			if (i == st.length() - 1) {
-				System.out.println(num);
 				sta.push(num);
 			}
 		}
@@ -37,9 +43,9 @@ public class ppp {
 		while (!sta.isEmpty()) {
 			result += sta.pop();
 		}
-		System.out.println("result : " + result);
+		System.out.println(result);
 	}
-	
+
 	public static boolean isNum(String str) {
 		try {
 			Integer.parseInt(str);
