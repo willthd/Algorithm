@@ -2,29 +2,50 @@ package practice;
 
 import java.util.*;
 
-// kakao 2017 하반기 1차 2번
-public class ppp {
+// kakao 2018 하반기 1차 2번
+public class Main7 {
 	public static void main(String[] args) {
-		String[] record = {"Enter uid1234 Muzi", "Enter uid4567 Prodo", "Leave uid1234", "Enter uid1234 Prodo",
-				"Change uid4567 Ryan"};
-		String[] result = solution(record);
-		for (int i = 0; i < result.length; i++) {
-			System.out.println(result[i]);
-		}
+		Scanner sc = new Scanner(System.in);
+		int N = 5;
+		int stages[] = {1, 1, 1, 1};
+		int answer[] = solution(N, stages);
 	}
-
-	public static String[] solution(String[] record) {
-		String id[] = new String[record.length];
-		String command[] = new String[record.length];
-		for (int i = 0; i < record.length; i++) {
-			String splitStr[] = record[i].split(" ");
-			id[i] = splitStr[1];
-			command[i] = splitStr[0];
+	
+	public static int[] solution(int N, int[] stages) {
+		double arr[] = new double[N + 1];
+		int answer[] = new int[N];
+		int total = stages.length;
+		int num = 0;
+		for (int i = 1; i <= N; i++) {
+			total = total - num;
+			num = 0;
+			for (int j = 0; j < stages.length; j++) {
+				if (stages[j] == i) {
+					num++;
+				}
+			}
+			if (total == 0) {
+				arr[i] = 0;
+			} else {
+				arr[i] = ((double)num / (double)total);
+			}
 		}
-		for (int i = 0; i < id.length; i++) {
-			
+		boolean check[] = new boolean[N + 1];
+		for (int j = 1; j <= N; j++) {
+			double maxV = -1;
+			int maxI = 0;
+			for (int i = 1; i <= N; i++) {
+				if (check[i]) {
+					continue;
+				}
+				if (maxV < arr[i]) {
+					maxV = arr[i];
+					maxI = i;
+				}
+			}
+			check[maxI] = true;			
+			answer[j - 1] = maxI;
 		}
-		String result[] = {};
-		return result;
-	}
+        return answer;
+    }
 }
