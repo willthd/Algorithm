@@ -4,7 +4,7 @@ import java.util.*;
 
 //n = 5(한 node에서 뻗치는 브랜치 수), r = 3(depth)
 public class pp {
-	static int r, a[], count[];
+	static int r, a[], count[], num[];
 	static boolean check[];
 
 	// n^r(n파이r), 중복 순열(1~5 중에서 3개 뽑아서 중복 가능, 순서 있는 나열)
@@ -53,18 +53,7 @@ public class pp {
 	public static void func3(int dep) {
 		if (dep == r) {
 			for (int i = 0; i < r; i++) {
-				if (a[i] == 0) {
-					System.out.print(1 + " ");
-				}
-				if (a[i] == 1) {
-					System.out.print(2 + " ");
-				}
-				if (a[i] == 2) {
-					System.out.print(3 + " ");
-				}
-				if (a[i] == 3) {
-					System.out.print(5 + " ");
-				}
+				System.out.print(a[i]);
 			}
 			System.out.println();
 			return;
@@ -74,7 +63,7 @@ public class pp {
 				continue;
 			}
 			count[i]--;
-			a[dep] = i;
+			a[dep] = num[i];
 			func3(dep + 1);
 			count[i]++;
 		}
@@ -116,9 +105,14 @@ public class pp {
 		a = new int[r];
 		check = new boolean[5];
 		count = new int[5];
-		// for (int i = 0; i < 4; i++) {
-		// count[i] = sc.nextInt();
-		// }
+		// 어떤 종류의 숫자를 넣을 것인지. 여기서 그 종류는 5개
+		for (int i = 0; i < 5; i++) {
+			num[i] = sc.nextInt();
+		}
+		// 각 숫자가 몇 개씩 존재하는지
+		for (int i = 0; i < 5; i++) {
+		count[i] = sc.nextInt();
+		}
 		// func1(0);
 		// func2(0);
 		// func3(0);
