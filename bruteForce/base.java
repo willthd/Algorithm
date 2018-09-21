@@ -7,7 +7,7 @@ public class pp {
 	static int r, a[], count[];
 	static boolean check[];
 
-	// n^r(n파이r), 중복 순열(1~5 중에서 3개 뽑아서 중복 가능, 순서 무시 나열)
+	// n^r(n파이r), 중복 순열(1~5 중에서 3개 뽑아서 중복 가능, 순서 있는 나열)
 	public static void func1(int dep) {
 		// depth를 어디까지 진행할 것인가
 		if (dep == r) {
