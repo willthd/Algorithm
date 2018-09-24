@@ -25,11 +25,6 @@ public class Main7 {
 				}
 			}
 			result = Math.abs(sum1 - sum2);
-			for (int i = 0; i < n / 2; i++) {
-				System.out.print((a[i] + 1) + " ");
-			}
-			System.out.println();
-			System.out.println("sum1 : " + sum1 + ", sum2 : " + sum2 + ", result : " + result);
 			if (min > result) {
 				min = result;
 			}
@@ -52,6 +47,6 @@ public class Main7 {
 			}
 		}
 		f(0, 0);
-		System.out.println("min : " + min);
+		System.out.println(min);
 	}
 }
