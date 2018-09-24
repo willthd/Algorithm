@@ -2,66 +2,64 @@ package practice;
 
 import java.util.*;
 
-// 백준, 2503, 숫자 야구
-public class Solution {
-	static int n, a[], cnt1, cnt2;
-	static boolean checked[];
-	static String arr[];
-	static int cnt = 0;
-
-	static void func(int dep) {
+public class Main7 {
+	static int arr_st[], arr_ba[], n, cnt = 0;
+	static String a[], num[];
+	static boolean check[];
+	
+	public static void f(int dep) {
 		if (dep == 3) {
-			String s = "";
-			for (int i = 0; i < 3; i++) {
-				s += a[i] + "";
-			}
-			for (int i = 0; i < n; i++) {
-				String temp[] = arr[i].split(" ");
-				check(s, temp);
-				if (cnt1 != Integer.parseInt(temp[1]) || cnt2 != Integer.parseInt(temp[2])) {
-					break;
-				}
-				if (i == n - 1) {
-					cnt++;
-				}
+			if (check(a)) {
+				cnt++;
 			}
 			return;
 		}
-		for (int i = 1; i <= 9; i++) {
-			if (checked[i] == true) {
+		for (int i = 0; i < 9; i++) {
+			if (check[i]) {
 				continue;
 			}
-			checked[i] = true;
-			a[dep] = i;
-			func(dep + 1);
-			checked[i] = false;
+			check[i] = true;
+			a[dep] = i + 1 + "";
+			f(dep + 1);
+			check[i] = false;
 		}
 	}
-
-	static void check(String s, String temp[]) {
-		cnt1 = 0;
-		cnt2 = 0;
-		for (int i = 0; i < 3; i++) {
-			if (s.charAt(i) == temp[0].charAt(i)) {
-				cnt1++;
-			} else {
-				if (s.contains(temp[0].charAt(i) + "")) {
-					cnt2++;
+	
+	public static boolean check(String a[]) {
+		for (int i = 0; i < n; i++) {
+			int st = 0;
+			int ba = 0;
+			String cp = num[i];
+			for (int j = 0; j < 3; j++) {
+				if (a[j].equals(cp.charAt(j) +"")) {
+					st++;
+					ba--;
+				}
+				if (cp.contains(a[j])) {
+					ba++;
 				}
 			}
+			if (st != arr_st[i] || ba != arr_ba[i]) {
+				return false;
+			}
 		}
+		return true;
 	}
-
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		n = Integer.parseInt(sc.nextLine());
-		a = new int[9999999];
-		checked = new boolean[9999999];
-		arr = new String[n];
+		n = sc.nextInt();
+		num = new String[n];
+		arr_st = new int[n];
+		arr_ba = new int[n];
+		check = new boolean[9];
+		a = new String[3];
 		for (int i = 0; i < n; i++) {
-			arr[i] = sc.nextLine();
+			num[i] = sc.next();
+			arr_st[i] = sc.nextInt();
+			arr_ba[i] = sc.nextInt();
 		}
-		func(0);
+		f(0);
 		System.out.println(cnt);
 	}
 }
