@@ -3,9 +3,10 @@ package practice;
 import java.util.*;
 
 // 백준, 9663, N-QUEEN
+// a[]은 세로 위치
 class ppp {
 	static int n, a[], cnt = 0;
-	
+
 	public static boolean check(int dep) {
 		for (int i = 0; i < dep; i++) {
 			if (a[i] == a[dep]) {
@@ -32,7 +33,7 @@ class ppp {
 		}
 	}
 
-	
+
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
