@@ -1,4 +1,4 @@
-package practice;
+wpackage practice;
 
 import java.util.*;
 
