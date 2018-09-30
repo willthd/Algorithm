@@ -22,7 +22,7 @@
 
 * [KNN](./knn)
 
-* [and others](./andothers)
+* [simulation](./simulation)
 
 
 
