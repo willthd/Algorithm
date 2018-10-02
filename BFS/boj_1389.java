@@ -2,6 +2,7 @@ package practice;
 
 import java.util.*;
 
+// 1260, BFS와 DFS 문제와 비슷
 public class Main4 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
