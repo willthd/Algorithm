@@ -10,6 +10,7 @@ public class Main5 {
 		int m = sc.nextInt();
 		int g[][] = new int[n][n];
 		int d[][] = new int[n][n];
+		boolean visited[][] = new boolean[n][n];
 		for (int i = 0; i < m; i++) {
 			int a = sc.nextInt();
 			int b = sc.nextInt();
@@ -21,20 +22,19 @@ public class Main5 {
 		// 시작 node에 따라서 떨어진 거리 다르기 때문에 for문으로 시작 node 한번씩 돌려본다
 		for (int i = 0; i < n; i++) {
 			Queue<Integer> q = new LinkedList<>();
-			boolean visited[] = new boolean[n];
 			q.add(i);
-			visited[i] = true;
+			visited[i][i] = true;
 			while(!q.isEmpty()) {
 				int now = q.poll();
 				for (int k = 0; k < n; k++) {
-					if (visited[k]) {
+					if (visited[i][k]) {
 						continue;
 					}
 					if (g[now][k] == 0) {
 						continue;
 					}
 					q.add(k);
-					visited[k] = true;
+					visited[i][k] = true;
 					d[i][k] = d[i][now] + 1;
 				}
 			}
