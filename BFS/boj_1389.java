@@ -3,12 +3,13 @@ package practice;
 import java.util.*;
 
 // 1260, BFS와 DFS 문제와 비슷
-public class Main4 {
+public class Main5 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int m = sc.nextInt();
 		int g[][] = new int[n][n];
+		int d[][] = new int[n][n];
 		for (int i = 0; i < m; i++) {
 			int a = sc.nextInt();
 			int b = sc.nextInt();
@@ -20,7 +21,6 @@ public class Main4 {
 		for (int i = 0; i < n; i++) {
 			Queue<Integer> q = new LinkedList<>();
 			boolean visited[] = new boolean[n];
-			int d[] = new int[n];
 			q.add(i);
 			visited[i] = true;
 			while(!q.isEmpty()) {
@@ -34,12 +34,14 @@ public class Main4 {
 					}
 					q.add(k);
 					visited[k] = true;
-					d[k] = d[now] + 1;
+					d[i][k] = d[i][now] + 1;
 				}
 			}
+		}
+		for (int i = 0; i < n; i++) {
 			int cnt = 0;
 			for (int j = 0; j < n; j++) {
-				cnt += d[j];
+				cnt += d[i][j];
 			}
 			if (min > cnt) {
 				min = cnt;
