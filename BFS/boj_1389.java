@@ -18,6 +18,7 @@ public class Main5 {
 		}
 		int min = Integer.MAX_VALUE;
 		int result = -1;
+		// 시작 node에 따라서 떨어진 거리 다르기 때문에 for문으로 시작 node 한번씩 돌려본다
 		for (int i = 0; i < n; i++) {
 			Queue<Integer> q = new LinkedList<>();
 			boolean visited[] = new boolean[n];
