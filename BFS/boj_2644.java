@@ -8,6 +8,53 @@ public class Main4 {
 		int n = sc.nextInt();
 		int g[][] = new int[n][n];
 		int d[][] = new int[n][n];
+		boolean visited[][] = new boolean[n][n];
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int k = sc.nextInt();
+		for (int i = 0; i < k; i++) {
+			int t1 = sc.nextInt();
+			int t2 = sc.nextInt();
+			g[t1 - 1][t2 - 1] = 1;
+			g[t2 - 1][t1 - 1] = 1;
+		}
+		for (int j = 0; j < n; j++) {
+			Queue<Integer> q = new LinkedList<>();
+			q.add(j);
+			visited[j][j] = true;
+			while(!q.isEmpty()) {
+				int now = q.poll();
+				for (int i = 0; i < n; i++) {
+					if (visited[j][i]) {
+						continue;
+					}
+					if (g[now][i] == 0) {
+						continue;
+					}
+					q.add(i);
+					visited[j][i] = true;
+					d[j][i] = d[j][now] + 1;
+				}
+			}
+		}
+		if (d[a - 1][b - 1] == 0) {
+			System.out.println(-1);
+		} else {
+			System.out.println(d[a - 1][b - 1]);
+		}
+	}
+}
+
+package practice;
+
+import java.util.*;
+
+public class Main4 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int g[][] = new int[n][n];
+		int d[][] = new int[n][n];
 		int a = sc.nextInt();
 		int b = sc.nextInt();
 		int k = sc.nextInt();
@@ -40,7 +87,7 @@ public class Main4 {
 		if (d[a - 1][b - 1] == 0) {
 			System.out.println(-1);
 		} else {
-			System.out.println(d[a - 1][b - 1]);			
+			System.out.println(d[a - 1][b - 1]);
 		}
 	}
 }
