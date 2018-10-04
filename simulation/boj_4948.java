@@ -20,7 +20,7 @@ public class Solution {
 				if (checked[i]) {
 					continue;
 				}
-				for (int j = 2 * i; j <= 2 * n; j += i) {
+				for (int j = i * i; j <= 2 * n; j += i) {
 					checked[j] = true;
 				}
 			}
