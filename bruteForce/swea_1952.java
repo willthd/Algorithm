@@ -6,7 +6,7 @@ public class Main4 {
 	static int price[], days[], min;
 
 	public static void dfs(int dep, int sum) {
-		if (dep == 12) {
+		if (dep >= 12) {
 			min = Math.min(sum, min);
 			return;
 		}
