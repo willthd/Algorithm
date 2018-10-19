@@ -5,7 +5,7 @@ import java.util.*;
 public class Main4 {
 	static int n, g[][], m, result = Integer.MAX_VALUE;
 	static boolean v[][];
-	
+
 	public static void f(int dep, int st) {
 		if (dep == m) {
 			int sum = 0;
@@ -28,6 +28,7 @@ public class Main4 {
 			result = Math.min(sum, result);
 			return;
 		}
+		// 이렇게 할 수도 있다. 하지만 j부분도 sty로 해버리면 답은 틀리게 나온다
 		for (int i = st; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				if (g[i][j] != 2) {
@@ -42,7 +43,7 @@ public class Main4 {
 			}
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
