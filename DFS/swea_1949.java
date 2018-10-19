@@ -6,7 +6,7 @@ import java.util.*;
 // 조건의 최대값으로 다 돌려도 1억 넘지 않아서 시간 초과 되지 않는다
 // 처음엔 벽 부수고 이동하기 문제처럼 dist[][][] 배열을 이용해서 풀었는데, 테스트 케이스가 몇 개 틀렸고, 반례를 찾는데 시간이 오래걸려서
 // 다 돌려보는 방식으로 변형하여 풀었다
-// dfs에서 visited부분 주의한다
+// dfs에서 visited부분 주의한다. 아래 주의! 표시
 public class Main4 {
 	static int n, g[][], k, max2;
 	static boolean visited[][];
@@ -29,6 +29,9 @@ public class Main4 {
 			}
 			// 주의 !!
 			// 단지 같은 문제는 어떤 경로든 그 위치 가면 같은 경우라 생각해도 무방하지만, 여기선 해당 위치에 다른 경로로 가면 다른 경로로 생각해야 한다
+			// 따라서 경로마다 max2값을 새롭게 갱신하기 위해 visited[][] = false로 새롭게 갱신해준다
+			// 이 부분과 큰 차이는 boj_14502 code에서 확인할 수 있는데, 이 부분은 경로에 따라 상관없이 dfs로 채우기만 하면 되기 때문에 큰 문제없다.
+			// 물론 14502문제는 bfs로 해결해도 무관.
 			visited[nextx][nexty] = true;
 			dfs(nextx, nexty, depth + 1);
 			visited[nextx][nexty] = false;
