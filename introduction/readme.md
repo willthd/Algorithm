@@ -16,11 +16,11 @@
 
 * 순서 (위로 갈수록 빠르다)
 
-  O(log n) - 이진 탐색
+  O(logn) - 이진 탐색
 
   O(n) - 단순 탐색
 
-  O(n * log n) - 퀵 정렬
+  O(nlogn) - 퀵 정렬
 
   O(n^2) - 선택 정렬
 
@@ -43,7 +43,7 @@
 
 
 
-### 시간 복잡도, 1억번 약 1초
+### 1억번 돌면 약 1초 걸린다
 
 10억은 약 (2^30)
 
@@ -51,9 +51,9 @@
 
 ### Max, Min 표현(정수 가정)
 
-max = -10^9, -(int)1e9, Integer.MIN_VALUE(-2^31)
+max = -10^9, -(int)1e9, Integer.MIN_VALUE(-2^31) 이런식으로 표현
 
-min = 10^9, (int)1e9, Integer.MAX_VALUE(2^31 - 1)
+min = 10^9, (int)1e9, Integer.MAX_VALUE(2^31 - 1) 이런식으로 표현
 
 java에서 정수는 32bit. 그 중 1bit은 sign bit이니까 31bit로만 표현. 그리고 양수의 절대값이 1보다 작은 이유는 양수 영역에서 0을 포함하기 때문
 

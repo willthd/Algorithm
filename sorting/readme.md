@@ -1,5 +1,5 @@
 ## Sorting
----
+
 
 > 자주 사용하는 bubble sort와 sort 중 가장 빠른 quick sort 익혀 두기
 
