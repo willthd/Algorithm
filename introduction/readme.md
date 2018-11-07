@@ -59,3 +59,19 @@ java에서 정수는 32bit. 그 중 1bit은 sign bit이니까 31bit로만 표현
 
 
 
+### Comparator 사용방법
+
+백준 11286 code 참조
+
+```java
+PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>(){
+	public int compare(Integer a, Integer b){
+		if (Math.abs(a) == Math.abs(b)) {
+			return Integer.compare(a, b);
+		} else {
+			return Integer.compare(Math.abs(a), Math.abs(b));
+		}
+	}
+});
+```
+
