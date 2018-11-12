@@ -35,15 +35,14 @@ public class Main {
 		PriorityQueue<Element> pq = new PriorityQueue<>();
 		d[st] = 0;
 		pq.add(new Element(st, 0));
-//        v[st] = true;
+//      v[st] = true;
 		while(!pq.isEmpty()) {
-			Element now = pq.poll();
-			int here = now.desti;
-//            v[here] = true;
+			int here = pq.poll().desti;
+//          v[here] = true;
 			for (int i = 1; i <= n; i++) {
-//                if (v[i]) {
-//                    continue;
-//                }
+//              if (v[i]) {
+//                  continue;
+//              }
 				if (g[here][i] == -1) {
 					continue;
 				}
