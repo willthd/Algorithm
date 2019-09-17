@@ -78,6 +78,11 @@ def f4(dep, st):
         a[dep] = i + 1
         f4(dep + 1, i + 1)
 
+# 조합은 사실 for문 두 개로 간단히 끝나기도 한다
+for i in range(n):
+    for j in range(i+1, n):
+        print(i, j)
+
 
 # 중복 조합, nHr, (1~5 중에서 3개 뽑아서 중복 o, 순서 x)
 def f5(dep, st):
@@ -90,6 +95,10 @@ def f5(dep, st):
         a[dep] = i + 1
         f5(dep + 1, i)
 
+# 중복 조합 역시 for문 두 개로 간단히 끝난다
+for i in range(n):
+    for j in range(i, n):
+        print(i, j)
 
 # f1(0)
 # f2(0)
