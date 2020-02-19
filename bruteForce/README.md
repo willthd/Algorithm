@@ -61,6 +61,8 @@ public static void f(int dep) {
 
 ex) boj 2467
 
+* Java
+
 ```java
 import java.util.*;
 
@@ -114,7 +116,26 @@ public class Main {
 }
 ```
 
+</br>
 
+* Python
+
+```python
+def b_search(start, end, arr, value):
+    mid = (start + end) // 2
+    if start == mid or end == mid:
+        return mid
+    if arr[mid][0] < value:
+        return b_search(mid, end, arr, value)
+    elif arr[mid][0] > value:
+        return b_search(start, mid, arr, value)
+    else:
+        while value == arr[mid][0]:
+            mid += 1
+            if mid >= len(arr):
+                return mid - 1
+        return mid - 1
+```
 
 </br>
 
