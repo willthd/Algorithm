@@ -121,20 +121,19 @@ public class Main {
 * Python
 
 ```python
-def b_search(start, end, arr, value):
-    mid = (start + end) // 2
-    if start == mid or end == mid:
-        return mid
-    if arr[mid][0] < value:
-        return b_search(mid, end, arr, value)
-    elif arr[mid][0] > value:
-        return b_search(start, mid, arr, value)
-    else:
-        while value == arr[mid][0]:
-            mid += 1
-            if mid >= len(arr):
-                return mid - 1
-        return mid - 1
+def binarySearch(A, x):
+    n = len(A)
+    beg = 0
+    end = n - 1
+    result = -1
+    while (beg <= end):
+        mid = (beg + end) / 2
+        if (A[mid] <= x):
+            beg = mid + 1
+            result = mid
+        else:
+            end = mid - 1
+    return result
 ```
 
 </br>
