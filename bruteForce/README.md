@@ -121,18 +121,21 @@ public class Main {
 * Python
 
 ```python
-def binarySearch(A, x):
-    n = len(A)
+def binartSearch(arr, target):
     beg = 0
-    end = n - 1
+    end = len(arr) - 1
     result = -1
-    while (beg <= end):
-        mid = (beg + end) / 2
-        if (A[mid] <= x):
+
+    while beg <= end:
+        mid = int((beg + end) / 2)
+        if arr[mid] < target:
             beg = mid + 1
-            result = mid
-        else:
+        elif arr[mid] > target:
             end = mid - 1
+        else:
+            result = mid
+            break
+
     return result
 ```
 
