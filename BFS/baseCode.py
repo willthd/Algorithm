@@ -1,4 +1,5 @@
 from sys import stdin as std
+From collections import duque
 
 # n행 m열 grid
 n = int(std.readline())
@@ -10,8 +11,8 @@ visited = [[False] * m for i in range(n)]
 for i in range(n):
     grid[i] = list(map(int,  std.readline().split()))
 
-qx = []
-qy = []
+qx = deque()
+qy = deque()
 stx, sty = 0, 0
 dx = [-1, 0, 0, 1]
 dy = [0, -1, 1, 0]
@@ -23,8 +24,8 @@ dist[stx][sty] = 0;
 visited[stx][sty] = True;
 
 while(qx):
-    nowx = qx.pop(0)
-    nowy = qy.pop(0)
+    nowx = qx.popleft()
+    nowy = qy.popleft()
     for i in range(4):
         nextx = nowx + dx[i]
         nexty = nowy + dy[i]
