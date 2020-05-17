@@ -15,6 +15,7 @@ qx = deque()
 qy = deque()
 stx, sty = 0, 0
 dx = [-1, 0, 0, 1]
+# codility, 9-3
 dy = [0, -1, 1, 0]
 visited[stx][sty] = True
 
