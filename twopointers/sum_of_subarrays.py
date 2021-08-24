@@ -1,4 +1,5 @@
 # Two pointer
+# 연속된 구간을 처리할때 자주 사용
 # 크기 상관 없이 임의의 자연수로 이루어진 배열이 있을 때, 합이 target과 동일한 연속 수열의 개수를 구하라
 class Solution:
     def threeSumClosest(nums, target) -> int:
